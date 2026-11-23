@@ -1,0 +1,450 @@
+{
+    "DataLicense": "LicenseRef-Unisoc-General-1.0",
+    "DataCopyright": "2022 Unisoc (Shanghai) Technologies Co., Ltd.",
+    "name": "Pipeline_Linkage",
+    "Blocks":[
+        {
+            "Name": "ISP_BLK_BLC",
+            "Id": "0x4002",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.blc.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_RGB_GAIN",
+            "Id": "0x4007",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.rgb_gain.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "DCAM_BLK_BPC",
+            "Id": "0x5001",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.bpc.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "DCAM_BLK_3DNR_PRE",
+            "Id": "0x5004",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": null,
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_BRIGHT",
+            "Id": "0x401F",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.brightness.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_CONTRAST",
+            "Id": "0x4020",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.contrast.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_SATURATION",
+            "Id": "0x4028",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.saturation.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_HUE",
+            "Id": "0x4029",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.hue.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_CCE",
+            "Id": "0x4017",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.cce.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_CFA",
+            "Id": "0x4011",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.cfa.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_CMC10_V1",
+            "Id": "0x4013",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.cmc10_v1.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_EDGE",
+            "Id": "0x4023",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.edge.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_RGB_GAMC",
+            "Id": "0x4014",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.rgbgamma.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_GRGB",
+            "Id": "0x4010",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.grgb.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_HSV",
+            "Id": "0x4015",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.hsv.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_IIRCNR_IIR",
+            "Id": "0x402A",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.iircnr.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_IIRCNR_YRANDOM",
+            "Id": "0x402B",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.yrandom.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "DCAM_BLK_NLM",
+            "Id": "0x5003",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.nlm.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_POSTERIZE",
+            "Id": "0x4016",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.posterize.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_YUV_PRECDN",
+            "Id": "0x401D",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.pre_cdn.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_UV_CDN",
+            "Id": "0x4025",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.uv_cdn.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_UV_POSTCDN",
+            "Id": "0x4026",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.uv_postcdn.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_YNR",
+            "Id": "0x401E",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.ynr.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_Y_GAMMC",
+            "Id": "0x4024",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.ygamma.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_2D_LSC",
+            "Id": "0x400A",
+            "Fix": 1,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.lsc.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_MFNR",
+            "Id": "0x5080",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.mfnr.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_YNRS",
+            "Id": "0x506C",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.ynrs.bypass",
+            "Bit2Bit": 0
+        },
+        {
+            "Name": "ISP_BLK_CNR3",
+            "Id": "0x5076",
+            "Fix": 0,
+            "Bypass": 1,
+            "BypassProp": "persist.vendor.cam.pm.cnr3.bypass",
+            "Bit2Bit": 0
+        }
+    ],
+    "rootBlocks":["ISP_BLK_BLC"],
+    "linkages":[
+        {
+            "from": {
+                "Name": "ISP_BLK_BLC"
+            },
+            "to": {
+                "Name": "ISP_BLK_RGB_GAIN"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_RGB_GAIN"
+            },
+            "to": {
+                "Name": "ISP_BLK_2D_LSC"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_2D_LSC"
+            },
+            "to": {
+                "Name": "DCAM_BLK_BPC"
+            }
+        },
+        {
+            "from": {
+                "Name": "DCAM_BLK_BPC"
+            },
+            "to": {
+                "Name": "ISP_BLK_GRGB"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_GRGB"
+            },
+            "to": {
+                "Name": "DCAM_BLK_NLM"
+            }
+        },
+        {
+            "from": {
+                "Name": "DCAM_BLK_NLM"
+            },
+            "to": {
+                "Name": "ISP_BLK_CFA"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_CFA"
+            },
+            "to": {
+                "Name": "ISP_BLK_CMC10_V1"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_CMC10_V1"
+            },
+            "to": {
+                "Name": "ISP_BLK_RGB_GAMC"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_RGB_GAMC"
+            },
+            "to": {
+                "Name": "ISP_BLK_HSV"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_HSV"
+            },
+            "to": {
+                "Name": "ISP_BLK_POSTERIZE"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_POSTERIZE"
+            },
+            "to": {
+                "Name": "ISP_BLK_CCE"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_CCE"
+            },
+            "to": {
+                "Name": "DCAM_BLK_3DNR_PRE"
+            }
+        },
+        {
+            "from": {
+                "Name": "DCAM_BLK_3DNR_PRE"
+            },
+            "to": {
+                "Name": "ISP_BLK_YUV_PRECDN"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_YUV_PRECDN"
+            },
+            "to": {
+                "Name": "ISP_BLK_YNR"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_YNR"
+            },
+            "to": {
+                "Name": "ISP_BLK_BRIGHT"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_BRIGHT"
+            },
+            "to": {
+                "Name": "ISP_BLK_CONTRAST"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_CONTRAST"
+            },
+            "to": {
+                "Name": "ISP_BLK_EDGE"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_EDGE"
+            },
+            "to": {
+                "Name": "ISP_BLK_Y_GAMMC"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_Y_GAMMC"
+            },
+            "to": {
+                "Name": "ISP_BLK_UV_CDN"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_UV_CDN"
+            },
+            "to": {
+                "Name": "ISP_BLK_UV_POSTCDN"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_UV_POSTCDN"
+            },
+            "to": {
+                "Name": "ISP_BLK_SATURATION"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_SATURATION"
+            },
+            "to": {
+                "Name": "ISP_BLK_HUE"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_HUE"
+            },
+            "to": {
+                "Name": "ISP_BLK_IIRCNR_IIR"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_IIRCNR_IIR"
+            },
+            "to": {
+                "Name": "ISP_BLK_IIRCNR_YRANDOM"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_IIRCNR_YRANDOM"
+            },
+            "to": {
+                "Name": "ISP_BLK_MFNR"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_MFNR"
+            },
+            "to": {
+                "Name": "ISP_BLK_YNRS"
+            }
+        },
+        {
+            "from": {
+                "Name": "ISP_BLK_YNRS"
+            },
+            "to": {
+                "Name": "ISP_BLK_CNR3"
+            }
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<!--common
+    Package for thirdpart apk size & fpsrange
+    EvictedPackage for Evicted Camera, stillname > comingname
+-->
+
+<TranITDCamProfiles>
+<!--
+    Package
+        arg1: name:  app package name
+        arg2: supportedPreviewSizes: Supported preview sizes
+        arg3: supportedVideoSizes: Supported video sizes
+        arg4: supportedPictureSizes: Supported picture sizes
+        arg5: fpsRange: fps range
+-->
+        <!-- Example: -->
+        <!--//SR:opt beautycamera preview fps A665LSE-1975 by ke.sun 20230823 begin -->
+        <!--BeautyCamera -->
+        <Package name="com.meitu.meiyancamera"
+            supportedPreviewSizes="1920x960,1936x848,1600x704,1440x720,1600x720,1280x720,960x720,960x540,800x600,720x720,720x480,640x480,352x288,320x240,320x144,240x240,288x144,256x144,400x176,176x144"
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange=""
+            /> 
+        <!--//SR:opt beautycamera preview fps A665LSE-1975 by ke.sun 20230823 end -->
+
+        <!--SR:opt YuFace preview size and fps A665LSE-2131 by runyu.hu 20230829 begin -->
+        <!--YuFace -->
+        <Package name="com.yuapp.beautycamera.selfie.makeup"
+            supportedPreviewSizes="1920x960,1936x848,1600x704,1440x720,1600x720,960x720,960x540,800x600,720x720,720x480,640x480,352x288,320x240,320x144,240x240,288x144,256x144,400x176,176x144"
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange="5,15"
+            /> 
+        <!--SR:opt YuFace preview size and fps A665LSE-2131 by runyu.hu 20230829 end -->
+
+        <!-- SR: opt preview and record fps for A665LSE-682 by haixin.sun 20230830 begin -->
+        <Package name="com.quvideo.xiaoying"
+            supportedPreviewSizes=""
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange="20,30"
+            />
+
+        <Package name="com.linecorp.b612.android"
+            supportedPreviewSizes="1280x720,960x720,720x480,640x480,352x288,320x240,400x176"
+            supportedVideoSizes="1280x720,960x720,720x480,640x480,352x288,320x240,400x176"
+            supportedPictureSizes=""
+            fpsRange=""
+            />
+
+        <Package name="com.commsource.beautyplus"
+            supportedPreviewSizes="1280x720,960x720,720x480,640x480,352x288,320x240,400x176"
+            supportedVideoSizes="1280x720,960x720,720x480,640x480,352x288,320x240,400x176"
+            supportedPictureSizes=""
+            fpsRange=""
+            />
+        <!-- SR: opt preview and record fps for A665LSE-682 by haixin.sun 20230830 begin -->
+	
+        <!-- SR:fix preview is not clear A665LSE-2269 by junrui.chen 20230905 start -->
+        <Package name="com.spotify.music"
+            supportedPreviewSizes="1440x720,1280x720,1048x768,960x540,720x480,640x480,352x288,320x240,176x144"
+            supportedVideoSizes="1440x720,1280x720,1048x768,960x540,720x480,640x480,352x288,320x240,176x144"
+            supportedPictureSizes="1440x720,1280x720,1048x768,960x540,720x480,640x480,352x288,320x240,176x144"
+            fpsRange=""
+            />
+        <!-- SR:fix preview is not clear A665LSE-2269 by junrui.chen 20230905 start -->
+
+        <!--SR:opt Snow preview size and fps A665LSE-2302 by runyu.hu 20230908 begin -->
+		<Package name="com.campmobile.snow"
+            supportedPreviewSizes="1920x960,1936x848,1600x704,1440x720,1600x720,1280x960,1280x720,960x720,960x540,800x600,720x720,720x480,640x480,352x288,320x240,320x144,240x240,288x144,256x144,400x176,176x144"
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange="5,15"
+            />
+        <!--SR:opt Snow preview size and fps A665LSE-2302 by runyu.hu 20230908 end -->
+
+        <!-- SR:opt photogrid record performance A665LSE-1553 by junrui.chen 20230920 start -->
+        <Package name="com.photogrid.collage.videomaker"
+            supportedPreviewSizes=""
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange="5,15"
+            />
+        <Package name="com.roidapp.photogrid"
+            supportedPreviewSizes=""
+            supportedVideoSizes=""
+            supportedPictureSizes=""
+            fpsRange="5,15"
+            />
+        <!-- SR:opt photogrid record performance A665LSE-1553 by junrui.chen 20230920 end -->
+
+<!--
+    EvictedPackage
+        arg1: comingname:  current app package name
+        arg2: stillname:  still alive app package name
+-->
+        <!--[ITD] modify for LCQHLYYLR-2079 by zhoumw 20200827 start-->
+        <!-- <EvictedPackage comingname="com.transsion.scanningrecharger" stillname="com.tencent.mm"/> -->
+        <!--[ITD] modify for LCQHLYYLR-2079 by zhoumw 20200827 end-->
+
+</TranITDCamProfiles>
