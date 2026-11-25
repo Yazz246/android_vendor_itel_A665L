@@ -4,7 +4,7 @@
 
 soong_namespace {
     imports: [
-        "device/itel/itel-A665L",
+        "device/itel/A665L",
     ],
 }
 
