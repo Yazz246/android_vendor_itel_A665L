@@ -3,7 +3,7 @@
 #
 
 PRODUCT_SOONG_NAMESPACES += \
-    vendor/itel/itel-A665L
+    vendor/itel/A665L
 
 PRODUCT_COPY_FILES += \
     vendor/itel/itel-A665L/proprietary/odm/camera/watermark/watermark_1280x720.nv21:$(TARGET_COPY_OUT_ODM)/camera/watermark/watermark_1280x720.nv21 \
