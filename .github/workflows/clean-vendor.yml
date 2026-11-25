@@ -13,11 +13,6 @@ jobs:
       - name: Checkout Vendor Tree
         uses: actions/checkout@v4
 
-      - name: Ambil Prebuilt NDK & Clang dari LineageOS
-        run: |
-          git clone --depth=1 https://github.com/LineageOS/android_prebuilts_ndk -b lineage-20.0 /tmp/ndk
-          git clone --depth=1 https://github.com/LineageOS/android_prebuilts_clang_host_linux-x86 -b lineage-20.0 /tmp/clang
-
       - name: Bersihkan Android.bp, .mk, dan Salin Library Hilang
         run: |
           python3 - << 'EOF'
@@ -120,19 +115,20 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 6. Salin & daftarkan libc++_shared
+          # 6. Salin & daftarkan libc++_shared dari NDK bawaan runner
           if 'name: "libc++_shared"' not in content:
-              m32 = sorted([s for s in glob.glob("/tmp/ndk/**/armeabi-v7a/libc++_shared.so", recursive=True) if os.path.isfile(s)])
-              m64 = sorted([s for s in glob.glob("/tmp/ndk/**/arm64-v8a/libc++_shared.so", recursive=True) if os.path.isfile(s)])
+              all_cxx = [s for s in glob.glob("/usr/local/lib/android/**/libc++_shared.so", recursive=True) if os.path.isfile(s)]
+              m32 = sorted([s for s in all_cxx if "armeabi-v7a" in s or "arm-linux-androideabi" in s])
+              m64 = sorted([s for s in all_cxx if "arm64-v8a" in s or "aarch64-linux-android" in s])
               if m32 and m64:
                   shutil.copy(m32[-1], "proprietary/vendor/lib/libc++_shared.so")
                   shutil.copy(m64[-1], "proprietary/vendor/lib64/libc++_shared.so")
                   content += add_prebuilt("libc++_shared", "proprietary/vendor/lib/libc++_shared.so", "proprietary/vendor/lib64/libc++_shared.so")
 
-          # 7. Salin & daftarkan libclang_rt.ubsan_standalone
+          # 7. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
           for rt, sub in [("libclang_rt.ubsan_standalone-aarch64-android", "lib64"), ("libclang_rt.ubsan_standalone-arm-android", "lib")]:
               if f'name: "{rt}"' not in content:
-                  src = sorted([s for s in glob.glob(f"/tmp/clang/**/{rt}.so", recursive=True) if os.path.isfile(s)])
+                  src = sorted([s for s in glob.glob(f"/usr/local/lib/android/**/{rt}.so", recursive=True) if os.path.isfile(s)])
                   if src:
                       dst = f"proprietary/vendor/{sub}/{rt}.so"
                       shutil.copy(src[-1], dst)
