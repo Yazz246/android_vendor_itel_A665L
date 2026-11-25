@@ -5454,7 +5454,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     MemsicAlgo \
     android.hardware.bluetooth.audio-impl \
-    audioclient-types-aidl-cpp \
     av-types-aidl-cpp \
     camera.device@1.0-impl \
     camera.device@3.2-impl-sprd \
@@ -5608,7 +5607,6 @@ PRODUCT_PACKAGES += \
     libvideo_share_memory \
     libvirtrpmb \
     libwcn-vendor \
-    libwifi-hal \
     libwpa_client \
     libclearkeycasplugin \
     libdrmclearkeyplugin \
@@ -6117,8 +6115,6 @@ PRODUCT_PACKAGES += \
     antiflashing \
     audiodumpclient \
     bootcheckbox \
-    boringssl_self_test32 \
-    boringssl_self_test64 \
     btools \
     charge \
     charged \
@@ -6181,41 +6177,21 @@ PRODUCT_PACKAGES += \
     modem_ctrl_dbg \
     nvmerge \
     phasecheckserver \
-    readme \
-    readme \
     fix_cpu_freq \
-    readme \
-    readme \
     lit_cpu_freq \
-    readme \
     cpu_loading \
-    readme \
     cpu_trans_table \
-    readme \
-    readme \
     ddr_bm \
     sharkl3_cm4_disable_smart_light.bin \
     fix_ddr_freq \
-    readme \
     ddr_loading \
-    readme \
     ddr_trans_table \
-    readme \
-    readme \
     fix_gpu_freq \
-    readme \
     gpu_loading \
-    readme \
     gpu_trans_table \
-    readme \
     interrupt \
-    readme \
-    readme \
-    readme \
     paras \
-    readme \
     tops \
-    readme \
     refnotify \
     rkp_factory_extraction_tool \
     rpmbserver \

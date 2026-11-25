@@ -92,48 +92,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "audioclient-types-aidl-cpp",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/audioclient-types-aidl-cpp.so",
-            ],
-            shared_libs: [
-                "libbinder",
-                "libutils",
-                "android.media.audio.common.types-V1-cpp",
-                "framework-permission-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/audioclient-types-aidl-cpp.so",
-            ],
-            shared_libs: [
-                "libbinder",
-                "libutils",
-                "android.media.audio.common.types-V1-cpp",
-                "framework-permission-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "av-types-aidl-cpp",
@@ -7281,50 +7239,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libwifi-hal",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libwifi-hal.so",
-            ],
-            shared_libs: [
-                "libbase",
-                "libcutils",
-                "liblog",
-                "libnl",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libwifi-hal.so",
-            ],
-            shared_libs: [
-                "libbase",
-                "libcutils",
-                "liblog",
-                "libnl",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libwpa_client",
@@ -7377,12 +7291,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib/mediacas/libclearkeycasplugin.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full",
                 "libutils",
                 "liblog",
                 "libcrypto",
                 "libstagefright_foundation",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite",
                 "libc++",
                 "libc",
                 "libm",
@@ -7394,12 +7308,12 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/mediacas/libclearkeycasplugin.so",
             ],
             shared_libs: [
-                "libprotobuf-cpp-full-3.9.1",
+                "libprotobuf-cpp-full",
                 "libutils",
                 "liblog",
                 "libcrypto",
                 "libstagefright_foundation",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite",
                 "libc++",
                 "libc",
                 "libm",
@@ -10302,7 +10216,7 @@ cc_prebuilt_library_shared {
                 "libcrypto",
                 "libcutils",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite",
                 "libutils",
                 "libc++",
                 "libc",
@@ -27095,55 +27009,7 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-cc_prebuilt_binary {
-    name: "boringssl_self_test32",
-    owner: "itel",
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/bin/boringssl_self_test32",
-            ],
-            shared_libs: [
-                "libcrypto",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "32",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_binary {
-    name: "boringssl_self_test64",
-    owner: "itel",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/boringssl_self_test64",
-            ],
-            shared_libs: [
-                "libcrypto",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "btools",
@@ -27702,7 +27568,7 @@ cc_prebuilt_binary {
                 "libbinder_ndk",
                 "libcrypto",
                 "liblog",
-                "libprotobuf-cpp-lite-3.9.1",
+                "libprotobuf-cpp-lite",
                 "libutils",
                 "android.hardware.drm-V1-ndk",
                 "libc++",
@@ -29119,23 +28985,7 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/backlight/readme",
-    filename: "readme",
-    sub_dir: "power/backlight",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/dvfs/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/dvfs",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "fix_cpu_freq",
@@ -29162,23 +29012,7 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/fix_freq/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/fix_freq",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/hotplug/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/hotplug",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "lit_cpu_freq",
@@ -29205,14 +29039,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/lit_freq/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/lit_freq",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "cpu_loading",
@@ -29239,14 +29065,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/loading/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/loading",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "cpu_trans_table",
@@ -29273,23 +29091,7 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/cpu/trans_table/readme",
-    filename: "readme",
-    sub_dir: "power/cpu/trans_table",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/ddr/bm/readme",
-    filename: "readme",
-    sub_dir: "power/ddr/bm",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "ddr_bm",
@@ -29350,14 +29152,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/ddr/fix_freq/readme",
-    filename: "readme",
-    sub_dir: "power/ddr/fix_freq",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "ddr_loading",
@@ -29384,14 +29178,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/ddr/loading/readme",
-    filename: "readme",
-    sub_dir: "power/ddr/loading",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "ddr_trans_table",
@@ -29418,23 +29204,7 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/ddr/trans_table/readme",
-    filename: "readme",
-    sub_dir: "power/ddr/trans_table",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/frame/readme",
-    filename: "readme",
-    sub_dir: "power/frame",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "fix_gpu_freq",
@@ -29461,14 +29231,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/gpu/fix_freq/readme",
-    filename: "readme",
-    sub_dir: "power/gpu/fix_freq",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "gpu_loading",
@@ -29495,14 +29257,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/gpu/loading/readme",
-    filename: "readme",
-    sub_dir: "power/gpu/loading",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "gpu_trans_table",
@@ -29529,14 +29283,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/gpu/trans_table/readme",
-    filename: "readme",
-    sub_dir: "power/gpu/trans_table",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "interrupt",
@@ -29563,32 +29309,8 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/interrupt/readme",
-    filename: "readme",
-    sub_dir: "power/interrupt",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/loadings/readme",
-    filename: "readme",
-    sub_dir: "power/loadings",
-    soc_specific: true,
-}
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/paras/readme",
-    filename: "readme",
-    sub_dir: "power/paras",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "paras",
@@ -29615,14 +29337,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/tops/readme",
-    filename: "readme",
-    sub_dir: "power/tops",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "tops",
@@ -29649,14 +29363,6 @@ cc_prebuilt_binary {
     soc_specific: true,
 }
 
-sh_binary {
-    name: "readme",
-    owner: "itel",
-    src: "proprietary/vendor/bin/power/total/readme",
-    filename: "readme",
-    sub_dir: "power/total",
-    soc_specific: true,
-}
 
 cc_prebuilt_binary {
     name: "refnotify",
@@ -30194,4 +29900,58 @@ cc_prebuilt_binary {
     },
     prefer: true,
     device_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libc++_shared",
+    owner: "itel",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["proprietary/vendor/lib/libc++_shared.so"],
+        },
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libc++_shared.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libclang_rt.ubsan_standalone-aarch64-android",
+    owner: "itel",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libclang_rt.ubsan_standalone-aarch64-android.so"],
+        },
+    },
+    compile_multilib: "64",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "libclang_rt.ubsan_standalone-arm-android",
+    owner: "itel",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["proprietary/vendor/lib/libclang_rt.ubsan_standalone-arm-android.so"],
+        },
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
 }
