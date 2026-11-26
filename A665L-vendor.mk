@@ -5707,7 +5707,6 @@ PRODUCT_PACKAGES += \
     cplog_common \
     libaiactiver \
     libaiactiver_core \
-    libbinderdebug \
     libcppbor_external \
     libefuse \
     libengbt \
