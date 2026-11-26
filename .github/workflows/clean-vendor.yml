@@ -25,7 +25,7 @@ jobs:
               if os.path.isfile(rm_file):
                   os.remove(rm_file)
 
-          # 2. Daftar modul bentrok & pola library AIDL standar AOSP
+          # 2. Daftar modul bentrok & executable/library inti standar AOSP
           conflict_mods = {
               "readme",
               "audioclient-types-aidl-cpp",
@@ -34,6 +34,26 @@ jobs:
               "libwifi-hal",
               "boringssl_self_test32",
               "boringssl_self_test64",
+              # Executable inti AOSP
+              "dumpsys", "dumpstate", "bugreport", "bugreportz",
+              "logcat", "logd", "logwrapper",
+              "servicemanager", "hwservicemanager", "vndservicemanager",
+              "sh", "toybox", "toolbox", "linker", "linker64",
+              "app_process", "app_process32", "app_process64",
+              "surfaceflinger", "audioserver", "cameraserver", "mediaserver",
+              "vold", "netd", "installd", "adbd", "init", "ueventd", "watchdogd",
+              "zygote", "zygote64", "lmkd", "tombstoned", "statsd",
+              "keystore2", "gatekeeperd", "wpa_supplicant", "hostapd",
+              "iptables", "ip6tables", "ip", "tc",
+              # Library inti AOSP
+              "libc", "libm", "libdl", "liblog", "libcutils", "libutils",
+              "libbinder", "libhidlbase", "libhidltransport", "libhwbinder",
+              "libbase", "libz", "libcrypto", "libssl", "libui", "libgui",
+              "libhardware", "libhardware_legacy", "libselinux", "libvndksupport",
+              "libsqlite", "libxml2", "libexpat", "libpng", "libjpeg", "libpcre2",
+              "libstagefright", "libstagefright_foundation", "libmedia",
+              "libaudioclient", "libcamera_client", "libfmq", "libion",
+              "libtinyxml2", "libjsoncpp", "libcurl", "liblz4", "liblzma",
           }
           aosp_aidl_re = re.compile(
               r'^('
@@ -164,6 +184,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: remove remaining AOSP *-aidl-* prebuilt duplicates" || exit 0
+          git commit -m "vendor: strip AOSP core binary and library prebuilt duplicates" || exit 0
           git push
-          
