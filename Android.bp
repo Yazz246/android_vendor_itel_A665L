@@ -2318,73 +2318,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libcamera2ndk_vendor",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libcamera2ndk_vendor.so",
-            ],
-            shared_libs: [
-                "libfmq",
-                "libhidlbase",
-                "libhardware",
-                "libnativewindow",
-                "liblog",
-                "libutils",
-                "libstagefright_foundation",
-                "libcutils",
-                "libcamera_metadata",
-                "libmediandk",
-                "android.frameworks.cameraservice.device@2.0",
-                "android.frameworks.cameraservice.device@2.1",
-                "android.frameworks.cameraservice.common@2.0",
-                "android.frameworks.cameraservice.service@2.0",
-                "android.frameworks.cameraservice.service@2.1",
-                "android.frameworks.cameraservice.service@2.2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcamera2ndk_vendor.so",
-            ],
-            shared_libs: [
-                "libfmq",
-                "libhidlbase",
-                "libhardware",
-                "libnativewindow",
-                "liblog",
-                "libutils",
-                "libstagefright_foundation",
-                "libcutils",
-                "libcamera_metadata",
-                "libmediandk",
-                "android.frameworks.cameraservice.device@2.0",
-                "android.frameworks.cameraservice.device@2.1",
-                "android.frameworks.cameraservice.common@2.0",
-                "android.frameworks.cameraservice.service@2.0",
-                "android.frameworks.cameraservice.service@2.1",
-                "android.frameworks.cameraservice.service@2.2",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libcodec2_unisoc_common",
@@ -3422,45 +3355,6 @@ cc_prebuilt_library_shared {
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libmediautils_vendor",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libmediautils_vendor.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libmediautils_vendor.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libmemion",
@@ -4797,87 +4691,7 @@ cc_prebuilt_library_shared {
 }
 
 
-cc_prebuilt_library_shared {
-    name: "libshmemcompat",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libshmemcompat.so",
-            ],
-            shared_libs: [
-                "libbinder",
-                "libshmemutil",
-                "libutils",
-                "shared-file-region-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libshmemcompat.so",
-            ],
-            shared_libs: [
-                "libbinder",
-                "libshmemutil",
-                "libutils",
-                "shared-file-region-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "libshmemutil",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libshmemutil.so",
-            ],
-            shared_libs: [
-                "shared-file-region-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libshmemutil.so",
-            ],
-            shared_libs: [
-                "shared-file-region-aidl-cpp",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libsl_fp_impl",
@@ -5252,57 +5066,6 @@ cc_prebuilt_library_shared {
 }
 
 
-cc_prebuilt_library_shared {
-    name: "libstagefrighthw",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libstagefrighthw.so",
-            ],
-            shared_libs: [
-                "libpowerhal_cli",
-                "libmemion",
-                "libutils",
-                "libcutils",
-                "libui",
-                "libstagefright_foundation",
-                "liblog",
-                "libion",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libstagefrighthw.so",
-            ],
-            shared_libs: [
-                "libpowerhal_cli",
-                "libmemion",
-                "libutils",
-                "libcutils",
-                "libui",
-                "libstagefright_foundation",
-                "liblog",
-                "libion",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    check_elf_files: false,
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libsupl",

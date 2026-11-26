@@ -5482,7 +5482,6 @@ PRODUCT_PACKAGES += \
     libavutil-56 \
     libbt-sprd_suite \
     libbt-ssp_bt \
-    libcamera2ndk_vendor \
     libcodec2_unisoc_common \
     libcodec2_unisoc_deintl \
     libcodec2_unisoc_imaadpcm \
@@ -5506,7 +5505,6 @@ PRODUCT_PACKAGES += \
     liblte \
     libmapuser \
     libmediahdrtosdrtransform \
-    libmediautils_vendor \
     libmemion \
     libnavcore \
     libnvexchange \
@@ -5536,8 +5534,6 @@ PRODUCT_PACKAGES += \
     libsensorlistcfg \
     libsensorndkbridge \
     libsensornpi \
-    libshmemcompat \
-    libshmemutil \
     libsl_fp_impl \
     libsoter_trusty \
     libsprd_omx_core \
@@ -5546,7 +5542,6 @@ PRODUCT_PACKAGES += \
     libsprdaudiohalv7 \
     libsprdfaceid \
     libsrv_um \
-    libstagefrighthw \
     libsupl \
     libswresample-3 \
     libswscale-5 \
