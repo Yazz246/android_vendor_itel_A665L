@@ -6007,7 +6007,6 @@ PRODUCT_PACKAGES += \
     ims \
     ai_engine-default.xml \
     android.hardware.security.keymint@2.0-unisoc.service.trusty.xml \
-    bluetooth_audio.xml \
     combinedservice.xml \
     cplog_svc-default.xml \
     enhance-default.xml \
