@@ -67,7 +67,7 @@ jobs:
               "power.default",
               "thermal.default",
               "vibrator.default",
-              # Library AOSP A-Z
+              # Library AOSP A-Z (kecuali libdav1d yang di AOSP hanya static)
               "libaaudio", "libaaudio_internal", "libacryl",
               "libadbconnection_client", "libadbd_auth", "libadbd_fs",
               "libamidi", "libandroid", "libandroid_net", "libandroid_runtime",
@@ -94,7 +94,7 @@ jobs:
               "libclearkeycasplugin", "libcompiler_rt", "libcppbor",
               "libcppbor_external", "libcppcose_rkp", "libcrypto",
               "libcrypto_utils", "libcups", "libcurl", "libcutils",
-              "libdatasource", "libdav1d", "libdebuggerd_client", "libdexfile",
+              "libdatasource", "libdebuggerd_client", "libdexfile",
               "libdexfile_external", "libdisplaysystem", "libdl",
               "libdl_android", "libdmabufheap", "libdng_sdk", "libdrm",
               "libdrmclearkeyplugin", "libdrmframework",
@@ -245,12 +245,10 @@ jobs:
                       blk = re.sub(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', rf'\g<1>{new_name}\g<3>', blk, count=1)
                   else:
                       seen[mod_name] = 1
-                  # Tambahkan check_elf_files: false agar ELF check tidak gagal saat kompilasi
                   if mod_type == "cc_prebuilt_library_shared" and "check_elf_files" not in blk:
                       blk = re.sub(r'(?m)^(\s*prefer:\s*true,)', r'    check_elf_files: false,\n\1', blk, count=1)
               kept_blocks.append(blk)
 
-          print(f"Total modul AOSP bentrok yang dihapus: {len(removed_mods)}")
           content = "".join(kept_blocks)
 
           # 4. Hapus referensi modul non-Soong di Android.bp
@@ -317,7 +315,11 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 7. Salin & daftarkan libc++_shared dari NDK bawaan runner
+          # 7. Kembalikan definisi libdav1d (dibutuhkan oleh libomx_av1dec_sw_sprd)
+          if 'name: "libdav1d"' not in content and os.path.isfile("proprietary/vendor/lib/libdav1d.so") and os.path.isfile("proprietary/vendor/lib64/libdav1d.so"):
+              content += add_prebuilt("libdav1d", "proprietary/vendor/lib/libdav1d.so", "proprietary/vendor/lib64/libdav1d.so")
+
+          # 8. Salin & daftarkan libc++_shared dari NDK bawaan runner
           if 'name: "libc++_shared"' not in content:
               all_cxx = [s for s in glob.glob("/usr/local/lib/android/**/libc++_shared.so", recursive=True) if os.path.isfile(s)]
               m32 = sorted([s for s in all_cxx if "armeabi-v7a" in s or "arm-linux-androideabi" in s])
@@ -327,7 +329,7 @@ jobs:
                   shutil.copy(m64[-1], "proprietary/vendor/lib64/libc++_shared.so")
                   content += add_prebuilt("libc++_shared", "proprietary/vendor/lib/libc++_shared.so", "proprietary/vendor/lib64/libc++_shared.so")
 
-          # 8. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
+          # 9. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
           for rt, sub in [("libclang_rt.ubsan_standalone-aarch64-android", "lib64"), ("libclang_rt.ubsan_standalone-arm-android", "lib")]:
               if f'name: "{rt}"' not in content:
                   src = sorted([s for s in glob.glob(f"/usr/local/lib/android/**/{rt}.so", recursive=True) if os.path.isfile(s)])
@@ -344,5 +346,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: audit and strip all remaining AOSP library, HAL, and init conflicts" || exit 0
+          git commit -m "vendor: restore libdav1d shared prebuilt required by libomx_av1dec_sw_sprd" || exit 0
           git push
