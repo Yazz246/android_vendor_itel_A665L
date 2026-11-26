@@ -6120,7 +6120,6 @@ PRODUCT_PACKAGES += \
     cp_diskserver \
     cp_dump_dbg \
     cplogctl \
-    dumpsys \
     engpc \
     engpcctl \
     enhance_test \
@@ -6144,7 +6143,6 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.multihal \
     android.hardware.usb-service.example \
     android.hardware.wifi@1.0-service-lazy \
-    hostapd \
     urild \
     vendor.focaltech.hardware.biometrics.fingerprint@1.0-service \
     vendor.silead.hardware.fingerprintext@1.0-service \
@@ -6167,7 +6165,6 @@ PRODUCT_PACKAGES += \
     vendor.tne@1.0-service \
     vendor.unisoc.hardware.ai_engine-service \
     vendor.unisoc.hardware.power-service \
-    wpa_supplicant \
     idlestat \
     iwnpi \
     modem_control \
