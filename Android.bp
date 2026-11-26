@@ -27713,3 +27713,23 @@ cc_prebuilt_library_shared {
     prefer: true,
     soc_specific: true,
 }
+
+cc_prebuilt_library_shared {
+    name: "libdav1d",
+    owner: "itel",
+    strip: {
+        none: true,
+    },
+    target: {
+        android_arm: {
+            srcs: ["proprietary/vendor/lib/libdav1d.so"],
+        },
+        android_arm64: {
+            srcs: ["proprietary/vendor/lib64/libdav1d.so"],
+        },
+    },
+    compile_multilib: "both",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
