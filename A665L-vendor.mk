@@ -5465,7 +5465,6 @@ PRODUCT_PACKAGES += \
     libEGL_powervr \
     libGLESv1_CM_powervr \
     libGLESv2_powervr \
-    framework-permission-aidl-cpp \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio@7.1-impl \
     android.hardware.broadcastradio@1.0-impl \
@@ -5620,7 +5619,6 @@ PRODUCT_PACKAGES += \
     liblcdnpi \
     libsoter_checkx \
     oemlock_ca \
-    shared-file-region-aidl-cpp \
     libdynproc \
     libhapticgenerator \
     vendor.silead.hardware.fingerprintext@1.0-adapter-helper \
