@@ -176,7 +176,7 @@ jobs:
 
           # Lindungi modul proprietary Unisoc / Spreadtrum / Itel / Transsion
           vendor_keep_re = re.compile(
-              r'(sprd|unisoc|itel|transsion|sc98|ums\d|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|mali|powervr|rogue|goodix|silead|chipone|focaltech|novatek|ilitek|himax|synaptics|egistec|sunwave|cdfinger|betterlife|microarray|nvitem|engpc|ylog|cplog|phasecheck|trusty|widevine)',
+              r'(sprd|unisoc|itel|transsion|sc98|ums\d|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|mali|powervr|rogue|goodix|silead|chipone|focaltech|novatek|ilitek|himax|synaptics|egistec|sunwave|cdfinger|betterlife|microarray|nvitem|engpc|ylog|cplog|phasecheck|trusty|widevine|\.img)',
               re.IGNORECASE
           )
 
@@ -204,8 +204,10 @@ jobs:
 
           aosp_vintf_re = re.compile(
               r'^('
-              r'(face|power\.stats|lights|vibrator|thermal|sensors|gatekeeper|keymaster|keymint|dumpstate|memtrack|boot|cas|drm|gnss|neuralnetworks|nfc|wifi|bluetooth|audio|camera|health|usb|identity|rebootescrow|weaver|confirmationui|authsecret|oemlock)-default\.(xml|rc)|'
-              r'android\.hardware\.(audio|biometrics\.face|biometrics\.fingerprint|boot|camera|cas|drm\.clearkey|gatekeeper|gnss|graphics\.composer|health|keymaster|light|media\.omx|memtrack|nfc|power|sensors|thermal|usb|vibrator|wifi).*\.(xml|rc)'
+              r'bluetooth_audio\.xml|'
+              r'manifest_media_c2_(software|V1_2_default)\.xml|'
+              r'(face|power\.stats|power|lights|vibrator|thermal|sensors|gatekeeper|keymaster|keymint|dumpstate|memtrack|boot|cas|drm|gnss|neuralnetworks|nfc|wifi|bluetooth|audio|camera|health|usb|identity|rebootescrow|weaver|confirmationui|authsecret|oemlock|atrace|ir)-default\.(xml|rc)|'
+              r'android\.hardware\..*\.(xml|rc)'
               r')$'
           )
 
@@ -387,5 +389,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip AOSP default vintf prebuilt_etc_xml modules" || exit 0
+          git commit -m "vendor: strip bluetooth_audio.xml and remaining AOSP vintf xml duplicates" || exit 0
           git push
