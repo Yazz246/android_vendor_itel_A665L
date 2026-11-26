@@ -189,28 +189,15 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/icap/control/scenes/Type_ISS.xml:$(TARGET_COPY_OUT_VENDOR)/etc/icap/control/scenes/Type_ISS.xml \
     vendor/itel/A665L/proprietary/vendor/etc/imsUserAgent.xml:$(TARGET_COPY_OUT_VENDOR)/etc/imsUserAgent.xml \
     vendor/itel/A665L/proprietary/vendor/etc/init/ai_engine-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/ai_engine-default.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.audio.service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.audio.service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.biometrics.fingerprint@2.1-service.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.bluetooth@1.1-service.unisoc.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.camera.provider@2.4-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.camera.provider@2.4-service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.cas@1.2-service-lazy.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.cas@1.2-service-lazy.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.drm-service-lazy.clearkey.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm-service-lazy.clearkey.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.drm-service-lazy.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm-service-lazy.widevine.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.drm-service.widevine.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.drm-service.widevine.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.gatekeeper@1.0-service.trusty.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.graphics.allocator@4.0-service.img.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.allocator@4.0-service.img.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.graphics.composer@2.4-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.graphics.composer@2.4-service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.health-service.example.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.health-service.example.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.media.c2@1.1-unisoc-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.c2@1.1-unisoc-service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.media.omx@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.media.omx@1.0-service.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.security.keymint@2.0-unisoc.service.trusty.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.sensors-service-multihal.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.sensors-service-multihal.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.usb-service.example.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.usb-service.example.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.wifi.supplicant-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi.supplicant-service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/android.hardware.wifi@1.0-service-lazy.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/android.hardware.wifi@1.0-service-lazy.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/antiflashing.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/antiflashing.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/autotest.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/autotest.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/boringssl_self_test.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/boringssl_self_test.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/charge.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/charge.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/charged.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/charged.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/connmgr.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/connmgr.rc \
@@ -219,7 +206,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/init/engpc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/engpc.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/enhance-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/enhance-default.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/face-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/face-default.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/hostapd.android.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hostapd.android.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.charge.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.charge.common.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.itel.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.itel.common.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.md.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.md.rc \
@@ -259,7 +245,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.connmgr@1.0-service.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.gnss@2.2-service.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.sprd.hardware.wcn@1.0-service.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/vndservicemanager.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vndservicemanager.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/vowifi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vowifi.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/wcn.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/wcn.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/yloglite.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/yloglite.rc \
@@ -5453,7 +5438,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     MemsicAlgo \
-    camera.device@1.0-impl \
     camera.device@3.2-impl-sprd \
     camera.device@3.3-impl-sprd \
     camera.device@3.4-external-impl-sprd \
@@ -5464,28 +5448,18 @@ PRODUCT_PACKAGES += \
     libEGL_powervr \
     libGLESv1_CM_powervr \
     libGLESv2_powervr \
-    audio.bluetooth.default \
-    audio.primary.default \
-    audio.r_submix.default \
-    audio.usb.default \
-    bootctrl.default \
     dpu.unisoc \
     enhance.unisoc \
     face.default \
     fingerprint.focaltech.default \
     fingerprint.silead.default \
-    gps.default \
-    gralloc.default \
     gralloc.sp9863a \
     gsp.unisoc \
     hwcomposer.unisoc \
     liblowi_wifihal \
     libwifi-hal-unisoc \
-    local_time.default \
     memtrack.sp9863a \
-    power.default \
     sensors.unisoc \
-    thermal.default \
     unisoc.bootctrl \
     vendor.sprd.hardware.algoservice@1.0-impl \
     vendor.sprd.hardware.connmgr@1.0-impl \
@@ -5493,7 +5467,6 @@ PRODUCT_PACKAGES += \
     vendor.sprd.hardware.thermal@2.0-impl \
     vendor.sprd.hardware.trusty-impl \
     vendor.sprd.hardware.wcn@1.0-impl \
-    vibrator.default \
     vulkan.sp9863a \
     libAlgoServiceAdapter \
     libIMGegl \
@@ -5507,8 +5480,6 @@ PRODUCT_PACKAGES += \
     libatci \
     libavcodec-58 \
     libavutil-56 \
-    libbluetooth_audio_session \
-    libbluetooth_audio_session_aidl \
     libbt-sprd_suite \
     libbt-ssp_bt \
     libcamera2ndk_vendor \
@@ -5516,7 +5487,6 @@ PRODUCT_PACKAGES += \
     libcodec2_unisoc_deintl \
     libcodec2_unisoc_imaadpcm \
     libcodec2_unisoc_store \
-    libdav1d \
     libeng_tok \
     libfaceid_ca \
     libfacepose \
@@ -5591,8 +5561,6 @@ PRODUCT_PACKAGES += \
     libvideo_share_memory \
     libvirtrpmb \
     libwcn-vendor \
-    libclearkeycasplugin \
-    libdrmclearkeyplugin \
     PQTune.sp9863a \
     autotestwifi \
     libFactoryRadioTest \
@@ -5604,8 +5572,6 @@ PRODUCT_PACKAGES += \
     liblcdnpi \
     libsoter_checkx \
     oemlock_ca \
-    libdynproc \
-    libhapticgenerator \
     vendor.silead.hardware.fingerprintext@1.0-adapter-helper \
     vendor.silead.hardware.fingerprintext@1.0 \
     vendor.sprd.hardware.algoservice@1.0 \
@@ -5707,14 +5673,12 @@ PRODUCT_PACKAGES += \
     cplog_common \
     libaiactiver \
     libaiactiver_core \
-    libcppbor_external \
     libefuse \
     libengbt \
     libimageClassify \
     libkernelbootcp.trusty \
     libkeystore-wifi-hidl \
     libliom \
-    libminizip \
     libportrait_repair_ppl3_ocl \
     libtneclient \
     libtnev \

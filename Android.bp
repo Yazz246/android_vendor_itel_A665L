@@ -39,6 +39,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -46,74 +47,6 @@ cc_prebuilt_library_shared {
 
 
 
-cc_prebuilt_library_shared {
-    name: "camera.device@1.0-impl",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/camera.device@1.0-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libhidlmemory",
-                "libutils",
-                "android.hardware.camera.device@1.0",
-                "android.hardware.camera.common@1.0",
-                "android.hardware.graphics.allocator@2.0",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "android.hardware.graphics.common@1.0",
-                "android.hidl.allocator@1.0",
-                "android.hidl.memory@1.0",
-                "libcutils",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/camera.device@1.0-impl.so",
-            ],
-            shared_libs: [
-                "libhidlbase",
-                "libhidlmemory",
-                "libutils",
-                "android.hardware.camera.device@1.0",
-                "android.hardware.camera.common@1.0",
-                "android.hardware.graphics.allocator@2.0",
-                "android.hardware.graphics.mapper@2.0",
-                "android.hardware.graphics.mapper@3.0",
-                "android.hardware.graphics.mapper@4.0",
-                "android.hardware.graphics.common@1.0",
-                "android.hidl.allocator@1.0",
-                "android.hidl.memory@1.0",
-                "libcutils",
-                "liblog",
-                "libgralloctypes",
-                "libhardware",
-                "libcamera_metadata",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "camera.device@3.2-impl-sprd",
@@ -174,6 +107,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -239,6 +173,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -318,6 +253,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -387,6 +323,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -470,6 +407,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -541,6 +479,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -628,6 +567,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -662,6 +602,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "egl",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -704,6 +645,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "egl",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -748,6 +690,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "egl",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -759,241 +702,10 @@ cc_prebuilt_library_shared {
 
 
 
-cc_prebuilt_library_shared {
-    name: "audio.bluetooth.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/audio.bluetooth.default.so",
-            ],
-            shared_libs: [
-                "android.hardware.bluetooth.audio-V2-ndk",
-                "libbluetooth_audio_session_aidl",
-                "libaudioutils",
-                "libbase",
-                "libbinder_ndk",
-                "libcutils",
-                "libfmq",
-                "liblog",
-                "libutils",
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbluetooth_audio_session",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/audio.bluetooth.default.so",
-            ],
-            shared_libs: [
-                "android.hardware.bluetooth.audio-V2-ndk",
-                "libbluetooth_audio_session_aidl",
-                "libaudioutils",
-                "libbase",
-                "libbinder_ndk",
-                "libcutils",
-                "libfmq",
-                "liblog",
-                "libutils",
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbluetooth_audio_session",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "audio.primary.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/audio.primary.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/audio.primary.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "audio.r_submix.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/audio.r_submix.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libmedia_helper",
-                "libnbaio_mono",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/audio.r_submix.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libmedia_helper",
-                "libnbaio_mono",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "audio.usb.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/audio.usb.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libaudioutils",
-                "libtinyalsa",
-                "libalsautils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/audio.usb.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libaudioutils",
-                "libtinyalsa",
-                "libalsautils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "bootctrl.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/bootctrl.default.so",
-            ],
-            shared_libs: [
-                "android.hardware.boot@1.1",
-                "libbase",
-                "liblog",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/bootctrl.default.so",
-            ],
-            shared_libs: [
-                "android.hardware.boot@1.1",
-                "libbase",
-                "liblog",
-                "libhardware",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "dpu.unisoc",
@@ -1043,6 +755,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1099,6 +812,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1163,6 +877,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1217,6 +932,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1263,99 +979,12 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "gps.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/gps.default.so",
-            ],
-            shared_libs: [
-                "libc",
-                "libutils",
-                "libcutils",
-                "libhardware",
-                "liblog",
-                "libpower",
-                "libm",
-                "libandroid_net",
-                "libbase",
-                "libc++",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/gps.default.so",
-            ],
-            shared_libs: [
-                "libc",
-                "libutils",
-                "libcutils",
-                "libhardware",
-                "liblog",
-                "libpower",
-                "libm",
-                "libandroid_net",
-                "libbase",
-                "libc++",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "gralloc.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/gralloc.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/gralloc.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "gralloc.sp9863a",
@@ -1399,6 +1028,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1453,6 +1083,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1525,6 +1156,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1567,6 +1199,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1609,49 +1242,11 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "local_time.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/local_time.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/local_time.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "memtrack.sp9863a",
@@ -1681,47 +1276,11 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "power.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/power.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/power.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "sensors.unisoc",
@@ -1769,51 +1328,11 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "thermal.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/thermal.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/thermal.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libcutils",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "unisoc.bootctrl",
@@ -1861,6 +1380,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1905,6 +1425,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1951,6 +1472,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -1999,6 +1521,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2055,6 +1578,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2109,6 +1633,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2151,47 +1676,11 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "vibrator.default",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/hw/vibrator.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/hw/vibrator.default.so",
-            ],
-            shared_libs: [
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "hw",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "vulkan.sp9863a",
@@ -2237,6 +1726,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2282,6 +1772,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2325,6 +1816,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2370,6 +1862,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2415,6 +1908,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2454,6 +1948,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2491,6 +1986,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2524,6 +2020,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2563,6 +2060,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2598,6 +2096,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2650,6 +2149,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2693,6 +2193,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2728,117 +2229,12 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libbluetooth_audio_session",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libbluetooth_audio_session.so",
-            ],
-            shared_libs: [
-                "android.hardware.audio.common@5.0",
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbase",
-                "libcutils",
-                "libfmq",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libbluetooth_audio_session_aidl",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libbluetooth_audio_session.so",
-            ],
-            shared_libs: [
-                "android.hardware.audio.common@5.0",
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbase",
-                "libcutils",
-                "libfmq",
-                "libhidlbase",
-                "liblog",
-                "libutils",
-                "libbluetooth_audio_session_aidl",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "libbluetooth_audio_session_aidl",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libbluetooth_audio_session_aidl.so",
-            ],
-            shared_libs: [
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbase",
-                "libcutils",
-                "libbinder_ndk",
-                "libfmq",
-                "liblog",
-                "android.hardware.bluetooth.audio-V2-ndk",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libbluetooth_audio_session_aidl.so",
-            ],
-            shared_libs: [
-                "android.hardware.bluetooth.audio@2.0",
-                "android.hardware.bluetooth.audio@2.1",
-                "libbase",
-                "libcutils",
-                "libbinder_ndk",
-                "libfmq",
-                "liblog",
-                "android.hardware.bluetooth.audio-V2-ndk",
-                "libhidlbase",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libbt-sprd_suite",
@@ -2877,6 +2273,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2916,6 +2313,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -2983,6 +2381,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3066,6 +2465,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3121,6 +2521,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3178,6 +2579,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3229,38 +2631,11 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libdav1d",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/libdav1d.so",
-            ],
-            shared_libs: [
-                "libc",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libdav1d.so",
-            ],
-            shared_libs: [
-                "libc",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libeng_tok",
@@ -3295,6 +2670,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3336,6 +2712,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3371,6 +2748,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3410,6 +2788,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3452,6 +2831,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3489,6 +2869,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3538,6 +2919,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3575,6 +2957,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3626,6 +3009,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3667,6 +3051,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3706,6 +3091,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3745,6 +3131,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3784,6 +3171,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3823,6 +3211,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3866,6 +3255,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3907,6 +3297,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3948,6 +3339,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -3989,6 +3381,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4024,6 +3417,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4063,6 +3457,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4104,6 +3499,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4149,6 +3545,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4196,6 +3593,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4239,6 +3637,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4280,6 +3679,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4329,6 +3729,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4370,6 +3771,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4411,6 +3813,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4446,6 +3849,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4489,6 +3893,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4530,6 +3935,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4579,6 +3985,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4620,6 +4027,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4661,6 +4069,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4702,6 +4111,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4743,6 +4153,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4782,6 +4193,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4823,6 +4235,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4864,6 +4277,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4913,6 +4327,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -4954,6 +4369,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5003,6 +4419,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5046,6 +4463,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5143,6 +4561,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5182,6 +4601,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5221,6 +4641,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5264,6 +4685,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5309,6 +4731,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5368,6 +4791,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5412,6 +4836,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5449,6 +4874,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5492,6 +4918,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5533,6 +4960,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5578,6 +5006,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5655,6 +5084,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5696,6 +5126,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5737,6 +5168,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5774,6 +5206,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5813,6 +5246,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5865,6 +5299,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5908,6 +5343,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5945,6 +5381,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -5982,6 +5419,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6025,6 +5463,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6078,6 +5517,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6121,6 +5561,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6177,6 +5618,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6218,6 +5660,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6255,6 +5698,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6288,6 +5732,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6331,6 +5776,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6377,6 +5823,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6416,6 +5863,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6455,103 +5903,14 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
 
 
-cc_prebuilt_library_shared {
-    name: "libclearkeycasplugin",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/mediacas/libclearkeycasplugin.so",
-            ],
-            shared_libs: [
-                "libprotobuf-cpp-full",
-                "libutils",
-                "liblog",
-                "libcrypto",
-                "libstagefright_foundation",
-                "libprotobuf-cpp-lite",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/mediacas/libclearkeycasplugin.so",
-            ],
-            shared_libs: [
-                "libprotobuf-cpp-full",
-                "libutils",
-                "liblog",
-                "libcrypto",
-                "libstagefright_foundation",
-                "libprotobuf-cpp-lite",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "mediacas",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "libdrmclearkeyplugin",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/mediadrm/libdrmclearkeyplugin.so",
-            ],
-            shared_libs: [
-                "libcrypto",
-                "liblog",
-                "libstagefright_foundation",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/mediadrm/libdrmclearkeyplugin.so",
-            ],
-            shared_libs: [
-                "libcrypto",
-                "liblog",
-                "libstagefright_foundation",
-                "libutils",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "mediadrm",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "PQTune.sp9863a",
@@ -6595,6 +5954,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6635,6 +5995,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6677,6 +6038,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6717,6 +6079,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6763,6 +6126,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6805,6 +6169,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6847,6 +6212,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6887,6 +6253,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6929,6 +6296,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -6971,6 +6339,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7012,98 +6381,13 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
 
-cc_prebuilt_library_shared {
-    name: "libdynproc",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/soundfx/libdynproc.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/soundfx/libdynproc.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "liblog",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "soundfx",
-    prefer: true,
-    soc_specific: true,
-}
 
-cc_prebuilt_library_shared {
-    name: "libhapticgenerator",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm: {
-            srcs: [
-                "proprietary/vendor/lib/soundfx/libhapticgenerator.so",
-            ],
-            shared_libs: [
-                "libaudioutils",
-                "libbase",
-                "libbinder",
-                "liblog",
-                "libutils",
-                "libvibrator",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/soundfx/libhapticgenerator.so",
-            ],
-            shared_libs: [
-                "libaudioutils",
-                "libbase",
-                "libbinder",
-                "liblog",
-                "libutils",
-                "libvibrator",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "both",
-    relative_install_path: "soundfx",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "vendor.silead.hardware.fingerprintext@1.0-adapter-helper",
@@ -7146,6 +6430,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7189,6 +6474,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7232,6 +6518,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7281,6 +6568,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7324,6 +6612,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7361,6 +6650,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7398,6 +6688,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7441,6 +6732,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7488,6 +6780,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7537,6 +6830,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7576,6 +6870,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7619,6 +6914,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7662,6 +6958,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7699,6 +6996,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7736,6 +7034,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7775,6 +7074,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7812,6 +7112,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7851,6 +7152,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7890,6 +7192,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7929,6 +7232,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -7968,6 +7272,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8007,6 +7312,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8055,6 +7361,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8082,6 +7389,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8111,6 +7419,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8139,6 +7448,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8169,6 +7479,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8197,6 +7508,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8226,6 +7538,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8252,6 +7565,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8291,6 +7605,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8331,6 +7646,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8370,6 +7686,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8409,6 +7726,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8448,6 +7766,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8487,6 +7806,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8526,6 +7846,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8561,6 +7882,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8596,6 +7918,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8631,6 +7954,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8666,6 +7990,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8705,6 +8030,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8744,6 +8070,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8784,6 +8111,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8824,6 +8152,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8857,6 +8186,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8884,6 +8214,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8915,6 +8246,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8941,6 +8273,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8969,6 +8302,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -8993,6 +8327,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9021,6 +8356,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9049,6 +8385,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9079,6 +8416,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9106,6 +8444,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9130,6 +8469,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9156,6 +8496,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9186,6 +8527,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9219,6 +8561,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "32",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9247,6 +8590,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9274,6 +8618,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9302,6 +8647,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9329,6 +8675,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9356,6 +8703,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9383,6 +8731,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9410,6 +8759,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9439,6 +8789,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9467,6 +8818,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9494,6 +8846,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9521,6 +8874,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9548,6 +8902,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9576,6 +8931,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9603,6 +8959,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9630,6 +8987,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9657,6 +9015,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9684,6 +9043,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9713,6 +9073,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9741,6 +9102,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9770,6 +9132,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9797,6 +9160,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9824,6 +9188,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9851,6 +9216,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9879,6 +9245,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9908,6 +9275,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9935,6 +9303,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9962,6 +9331,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -9990,6 +9360,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10018,6 +9389,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10045,6 +9417,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10073,6 +9446,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10100,6 +9474,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10127,6 +9502,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10154,6 +9530,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10181,6 +9558,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10208,6 +9586,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10235,6 +9614,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10263,6 +9643,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10291,6 +9672,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "soundfx",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10318,6 +9700,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10346,6 +9729,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10372,36 +9756,12 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
 
-cc_prebuilt_library_shared {
-    name: "libcppbor_external",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libcppbor_external.so",
-            ],
-            shared_libs: [
-                "libbase",
-                "libcrypto",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
 
 cc_prebuilt_library_shared {
@@ -10427,6 +9787,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10457,6 +9818,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10490,6 +9852,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10517,6 +9880,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10548,6 +9912,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10573,37 +9938,11 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
 
-cc_prebuilt_library_shared {
-    name: "libminizip",
-    owner: "itel",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libminizip.so",
-            ],
-            shared_libs: [
-                "libcutils",
-                "libutils",
-                "liblog",
-                "libz",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
 
 cc_prebuilt_library_shared {
     name: "libportrait_repair_ppl3_ocl",
@@ -10625,6 +9964,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10653,6 +9993,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10682,6 +10023,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10709,6 +10051,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10737,6 +10080,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10765,6 +10109,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10790,6 +10135,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10815,6 +10161,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10840,6 +10187,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10865,6 +10213,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10893,6 +10242,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10918,6 +10268,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10946,6 +10297,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -10974,6 +10326,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -11002,6 +10355,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -11027,6 +10381,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "64",
+    check_elf_files: false,
     prefer: true,
     soc_specific: true,
 }
@@ -11197,6 +10552,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "hw",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11232,6 +10588,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11267,6 +10624,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11302,6 +10660,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11341,6 +10700,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11378,6 +10738,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11415,6 +10776,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11460,6 +10822,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11495,6 +10858,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11532,6 +10896,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11571,6 +10936,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11610,6 +10976,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11645,6 +11012,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11688,6 +11056,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11731,6 +11100,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11770,6 +11140,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11813,6 +11184,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11852,6 +11224,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11897,6 +11270,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11940,6 +11314,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -11987,6 +11362,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12034,6 +11410,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12087,6 +11464,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12132,6 +11510,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12179,6 +11558,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12226,6 +11606,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12271,6 +11652,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12314,6 +11696,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12355,6 +11738,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12398,6 +11782,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12431,6 +11816,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12466,6 +11852,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12511,6 +11898,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12546,6 +11934,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12581,6 +11970,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12616,6 +12006,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12651,6 +12042,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12686,6 +12078,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12721,6 +12114,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12756,6 +12150,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12791,6 +12186,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12828,6 +12224,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12865,6 +12262,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12900,6 +12298,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12935,6 +12334,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -12970,6 +12370,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13005,6 +12406,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13044,6 +12446,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13087,6 +12490,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13122,6 +12526,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13165,6 +12570,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13204,6 +12610,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13243,6 +12650,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13280,6 +12688,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13315,6 +12724,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13350,6 +12760,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13385,6 +12796,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13420,6 +12832,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13455,6 +12868,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13490,6 +12904,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13535,6 +12950,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13570,6 +12986,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13613,6 +13030,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13660,6 +13078,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13701,6 +13120,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13742,6 +13162,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13791,6 +13212,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13836,6 +13258,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13877,6 +13300,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13918,6 +13342,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -13961,6 +13386,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14064,6 +13490,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14109,6 +13536,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14158,6 +13586,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14199,6 +13628,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14246,6 +13676,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14295,6 +13726,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14340,6 +13772,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14385,6 +13818,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14430,6 +13864,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14475,6 +13910,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14522,6 +13958,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14567,6 +14004,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14614,6 +14052,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14659,6 +14098,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14704,6 +14144,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14751,6 +14192,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14792,6 +14234,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14835,6 +14278,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14876,6 +14320,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14911,6 +14356,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14954,6 +14400,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -14989,6 +14436,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15024,6 +14472,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15061,6 +14510,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15108,6 +14558,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15145,6 +14596,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15184,6 +14636,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15223,6 +14676,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15258,6 +14712,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15293,6 +14748,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15328,6 +14784,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15363,6 +14820,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15398,6 +14856,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15433,6 +14892,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15472,6 +14932,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15513,6 +14974,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15620,6 +15082,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15679,6 +15142,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15714,6 +15178,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15751,6 +15216,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15786,6 +15252,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15821,6 +15288,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15886,6 +15354,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15921,6 +15390,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -15990,6 +15460,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16047,6 +15518,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16114,6 +15586,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16281,6 +15754,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16330,6 +15804,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16495,6 +15970,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16662,6 +16138,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16843,6 +16320,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16882,6 +16360,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16917,6 +16396,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16946,6 +16426,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -16981,6 +16462,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17030,6 +16512,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17079,6 +16562,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17128,6 +16612,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17177,6 +16662,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17226,6 +16712,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17275,6 +16762,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17324,6 +16812,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17373,6 +16862,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17422,6 +16912,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17471,6 +16962,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17520,6 +17012,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17569,6 +17062,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17618,6 +17112,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17667,6 +17162,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17716,6 +17212,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17765,6 +17262,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17814,6 +17312,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17863,6 +17362,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17898,6 +17398,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17941,6 +17442,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -17998,6 +17500,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18033,6 +17536,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18080,6 +17584,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18127,6 +17632,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18174,6 +17680,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18221,6 +17728,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18268,6 +17776,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18315,6 +17824,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18362,6 +17872,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18409,6 +17920,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18456,6 +17968,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18503,6 +18016,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18550,6 +18064,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18597,6 +18112,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18644,6 +18160,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18691,6 +18208,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18738,6 +18256,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18785,6 +18304,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18832,6 +18352,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18879,6 +18400,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18926,6 +18448,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -18973,6 +18496,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19020,6 +18544,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19067,6 +18592,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19114,6 +18640,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19161,6 +18688,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19208,6 +18736,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19255,6 +18784,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19302,6 +18832,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19349,6 +18880,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19396,6 +18928,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19443,6 +18976,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19490,6 +19024,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19537,6 +19072,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19584,6 +19120,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19631,6 +19168,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19678,6 +19216,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19725,6 +19264,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19772,6 +19312,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19819,6 +19360,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19866,6 +19408,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19913,6 +19456,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -19960,6 +19504,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20007,6 +19552,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20054,6 +19600,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20101,6 +19648,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20148,6 +19696,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20195,6 +19744,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20242,6 +19792,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20289,6 +19840,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20336,6 +19888,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20383,6 +19936,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20430,6 +19984,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20477,6 +20032,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20524,6 +20080,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20571,6 +20128,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20618,6 +20176,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20665,6 +20224,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20712,6 +20272,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20759,6 +20320,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20806,6 +20368,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20853,6 +20416,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20900,6 +20464,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20947,6 +20512,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -20994,6 +20560,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21041,6 +20608,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21088,6 +20656,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21135,6 +20704,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21182,6 +20752,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21229,6 +20800,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21276,6 +20848,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21323,6 +20896,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21370,6 +20944,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21417,6 +20992,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21464,6 +21040,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21511,6 +21088,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21558,6 +21136,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21605,6 +21184,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21652,6 +21232,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21699,6 +21280,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21746,6 +21328,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21793,6 +21376,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21840,6 +21424,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21887,6 +21472,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21938,6 +21524,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -21973,6 +21560,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22014,6 +21602,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22049,6 +21638,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22090,6 +21680,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22137,6 +21728,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22178,6 +21770,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22221,6 +21814,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22256,6 +21850,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22291,6 +21886,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22336,6 +21932,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22373,6 +21970,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22418,6 +22016,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22453,6 +22052,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22488,6 +22088,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22533,6 +22134,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22568,6 +22170,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22615,6 +22218,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22662,6 +22266,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22697,6 +22302,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22738,6 +22344,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22781,6 +22388,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22816,6 +22424,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22859,6 +22468,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22894,6 +22504,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22929,6 +22540,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22964,6 +22576,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -22999,6 +22612,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23036,6 +22650,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23077,6 +22692,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23116,6 +22732,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23159,6 +22776,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23200,6 +22818,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23235,6 +22854,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23278,6 +22898,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23313,6 +22934,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23348,6 +22970,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23383,6 +23006,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23438,6 +23062,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23471,6 +23096,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23506,6 +23132,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23551,6 +23178,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23590,6 +23218,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23627,6 +23256,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23670,6 +23300,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23709,6 +23340,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23758,6 +23390,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23797,6 +23430,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23837,6 +23471,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23876,6 +23511,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23911,6 +23547,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23948,6 +23585,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -23983,6 +23621,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24030,6 +23669,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24077,6 +23717,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24124,6 +23765,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24171,6 +23813,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24218,6 +23861,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24265,6 +23909,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24312,6 +23957,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24359,6 +24005,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24406,6 +24053,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24453,6 +24101,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24500,6 +24149,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24547,6 +24197,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24594,6 +24245,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24641,6 +24293,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24688,6 +24341,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24735,6 +24389,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24774,6 +24429,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24809,6 +24465,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24844,6 +24501,7 @@ cc_prebuilt_library_shared {
         },
     },
     compile_multilib: "both",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24898,6 +24556,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -24956,6 +24615,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25010,6 +24670,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25068,6 +24729,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25124,6 +24786,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25176,6 +24839,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25230,6 +24894,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25286,6 +24951,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "both",
     relative_install_path: "lwpPolicy",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25316,6 +24982,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
@@ -25345,6 +25012,7 @@ cc_prebuilt_library_shared {
     },
     compile_multilib: "32",
     relative_install_path: "npidevice",
+    check_elf_files: false,
     prefer: true,
     device_specific: true,
 }
