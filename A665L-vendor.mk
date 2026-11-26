@@ -5453,7 +5453,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     MemsicAlgo \
-    android.hardware.bluetooth.audio-impl \
     camera.device@1.0-impl \
     camera.device@3.2-impl-sprd \
     camera.device@3.3-impl-sprd \
@@ -5465,12 +5464,6 @@ PRODUCT_PACKAGES += \
     libEGL_powervr \
     libGLESv1_CM_powervr \
     libGLESv2_powervr \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio@7.1-impl \
-    android.hardware.broadcastradio@1.0-impl \
-    android.hardware.gnss@2.1-impl \
-    android.hardware.graphics.mapper@4.0-impl \
-    android.hardware.renderscript@1.0-impl \
     audio.bluetooth.default \
     audio.primary.default \
     audio.r_submix.default \
@@ -5511,10 +5504,8 @@ PRODUCT_PACKAGES += \
     libWhite_point_shift \
     lib_crypto \
     lib_hdr10plus_tm \
-    libalsautils \
     libatci \
     libaudioclient_aidl_conversion \
-    libaudiofoundation \
     libavcodec-58 \
     libavutil-56 \
     libbluetooth_audio_session \
@@ -5576,7 +5567,6 @@ PRODUCT_PACKAGES += \
     libsensorlistcfg \
     libsensorndkbridge \
     libsensornpi \
-    libsfplugin_ccodec_utils \
     libshmemcompat \
     libshmemutil \
     libsl_fp_impl \
@@ -5587,7 +5577,6 @@ PRODUCT_PACKAGES += \
     libsprdaudiohalv7 \
     libsprdfaceid \
     libsrv_um \
-    libstagefright_bufferpool@2.0.1 \
     libstagefrighthw \
     libsupl \
     libswresample-3 \
@@ -5605,7 +5594,6 @@ PRODUCT_PACKAGES += \
     libvideo_share_memory \
     libvirtrpmb \
     libwcn-vendor \
-    libwpa_client \
     libclearkeycasplugin \
     libdrmclearkeyplugin \
     PQTune.sp9863a \
@@ -5651,7 +5639,6 @@ PRODUCT_PACKAGES += \
     libaudiomiscctl_normal \
     libaudionpinv \
     libbqbbt \
-    libcodec2_hidl@1.1 \
     libcodec2_hidl_plugin \
     libcodec2_unisoc_av1dec \
     libcodec2_unisoc_avcdec \
@@ -5725,24 +5712,19 @@ PRODUCT_PACKAGES += \
     nativemmifinger \
     libsprdvoiceprocessing \
     cplog_common \
-    lib_android_keymaster_keymint_utils \
     libaiactiver \
     libaiactiver_core \
     libbinderdebug \
     libcppbor_external \
-    libcppcose_rkp \
     libefuse \
     libengbt \
     libhwc2onfbadapter \
     libimageClassify \
     libkernelbootcp.trusty \
-    libkeymint \
-    libkeystore-engine-wifi-hidl \
     libkeystore-wifi-hidl \
     libliom \
     libminizip \
     libportrait_repair_ppl3_ocl \
-    libsoft_attestation_cert \
     libtneclient \
     libtnev \
     libtranlog \
@@ -6077,17 +6059,8 @@ PRODUCT_PACKAGES += \
     SoterService \
     ims \
     ai_engine-default.xml \
-    android.hardware.biometrics.fingerprint@2.1-service.xml \
-    android.hardware.cas@1.2-service-lazy.xml \
-    android.hardware.drm-service.clearkey.xml \
     android.hardware.gatekeeper@1.0-service.trusty.xml \
-    android.hardware.health-service.example.xml \
     android.hardware.security.keymint@2.0-unisoc.service.trusty.xml \
-    android.hardware.sensors-multihal.xml \
-    android.hardware.usb-service.example.xml \
-    android.hardware.wifi.hostapd.xml \
-    android.hardware.wifi.supplicant.xml \
-    android.hardware.wifi@1.0-service.xml \
     bluetooth_audio.xml \
     combinedservice.xml \
     cplog_svc-default.xml \
@@ -6124,25 +6097,10 @@ PRODUCT_PACKAGES += \
     engpcctl \
     enhance_test \
     gpsd \
-    android.hardware.audio.service \
-    android.hardware.biometrics.fingerprint@2.1-service \
     android.hardware.bluetooth@1.1-service.unisoc \
-    android.hardware.camera.provider@2.4-service \
-    android.hardware.cas@1.2-service-lazy \
-    android.hardware.drm-service-lazy.clearkey \
-    android.hardware.drm-service-lazy.widevine \
-    android.hardware.drm-service.widevine \
     android.hardware.gatekeeper@1.0-service.trusty \
-    android.hardware.graphics.allocator@4.0-service \
-    android.hardware.graphics.composer@2.4-service \
-    android.hardware.health-service.example \
     android.hardware.media.c2@1.1-unisoc-service \
-    android.hardware.media.omx@1.0-service \
-    android.hardware.power.stats-service.example \
     android.hardware.security.keymint@2.0-unisoc.service.trusty \
-    android.hardware.sensors-service.multihal \
-    android.hardware.usb-service.example \
-    android.hardware.wifi@1.0-service-lazy \
     urild \
     vendor.focaltech.hardware.biometrics.fingerprint@1.0-service \
     vendor.silead.hardware.fingerprintext@1.0-service \
