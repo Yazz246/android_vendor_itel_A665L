@@ -5454,7 +5454,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     MemsicAlgo \
     android.hardware.bluetooth.audio-impl \
-    av-types-aidl-cpp \
     camera.device@1.0-impl \
     camera.device@3.2-impl-sprd \
     camera.device@3.3-impl-sprd \
