@@ -205,7 +205,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/init/cplog_svc-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/cplog_svc-default.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/engpc.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/engpc.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/enhance-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/enhance-default.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/face-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/face-default.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.charge.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.charge.common.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.itel.common.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.itel.common.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/init.md.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.md.rc \
@@ -218,7 +217,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/init/modem_control.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/modem_control.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/network-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/network-default.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/phasecheckserver.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/phasecheckserver.rc \
-    vendor/itel/A665L/proprietary/vendor/etc/init/power.stats-default.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/power.stats-default.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/refnotify.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/refnotify.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/rpmbserver.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/rpmbserver.rc \
     vendor/itel/A665L/proprietary/vendor/etc/init/slogmodem_vendor.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/slogmodem_vendor.rc \
