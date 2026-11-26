@@ -201,6 +201,14 @@ jobs:
               r'libalsautils'
               r')$'
           )
+
+          aosp_vintf_re = re.compile(
+              r'^('
+              r'(face|power\.stats|lights|vibrator|thermal|sensors|gatekeeper|keymaster|keymint|dumpstate|memtrack|boot|cas|drm|gnss|neuralnetworks|nfc|wifi|bluetooth|audio|camera|health|usb|identity|rebootescrow|weaver|confirmationui|authsecret|oemlock)-default\.(xml|rc)|'
+              r'android\.hardware\.(audio|biometrics\.face|biometrics\.fingerprint|boot|camera|cas|drm\.clearkey|gatekeeper|gnss|graphics\.composer|health|keymaster|light|media\.omx|memtrack|nfc|power|sensors|thermal|usb|vibrator|wifi).*\.(xml|rc)'
+              r')$'
+          )
+
           strip_bp_refs = {"readme", "libwifi-hal"}
 
           # 3. Parse blok modul Android.bp
@@ -221,12 +229,17 @@ jobs:
           seen = {}
           seen_sigs = set()
           removed_mods = set(conflict_mods)
+          removed_vintf_bp = []
           kept_blocks = []
           for blk in blocks:
               m = re.search(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', blk)
               if m:
                   mod_name = m.group(2)
                   is_vendor_prop = bool(vendor_keep_re.search(mod_name))
+                  if not is_vendor_prop and aosp_vintf_re.match(mod_name):
+                      removed_mods.add(mod_name)
+                      removed_vintf_bp.append(mod_name)
+                      continue
                   if not is_vendor_prop and (mod_name in conflict_mods or aosp_pattern_re.match(mod_name)):
                       removed_mods.add(mod_name)
                       continue
@@ -250,6 +263,7 @@ jobs:
                       blk = re.sub(r'(?m)^(\s*prefer:\s*true,)', r'    check_elf_files: false,\n\1', blk, count=1)
               kept_blocks.append(blk)
 
+          print("Modul VINTF/XML AOSP yang dihapus dari Android.bp:", sorted(removed_vintf_bp))
           content = "".join(kept_blocks)
 
           # 4. Hapus referensi modul non-Soong di Android.bp
@@ -284,13 +298,6 @@ jobs:
               "vndservicemanager.rc",
           }
 
-          aosp_vintf_re = re.compile(
-              r'^('
-              r'(face|power\.stats|lights|vibrator|thermal|sensors|gatekeeper|keymaster|keymint|dumpstate|memtrack|boot|cas|drm|gnss|neuralnetworks|nfc|wifi|bluetooth|audio|camera|health|usb|identity|rebootescrow|weaver|confirmationui|authsecret|oemlock)-default\.xml|'
-              r'android\.hardware\.(audio|biometrics\.face|biometrics\.fingerprint|boot|camera|cas|drm\.clearkey|gatekeeper|gnss|graphics\.composer|health|keymaster|light|media\.omx|memtrack|nfc|power|sensors|thermal|usb|vibrator|wifi).*\.(xml|rc)'
-              r')$'
-          )
-
           removed_copy_lines = []
           for mk_path in glob.glob("**/*.mk", recursive=True):
               new_lines = []
@@ -304,13 +311,14 @@ jobs:
                           continue
                   m_pkg = re.match(r'^\s*([^\s\\]+)\s*\\?\s*$', line)
                   if m_pkg and m_pkg.group(1) in removed_mods:
+                      removed_copy_lines.append(f"{mk_path} (pkg): {m_pkg.group(1)}")
                       continue
                   new_lines.append(line)
               mk_txt = "".join(new_lines)
               mk_txt = re.sub(r'\s*\\\s*\n(\s*\n|\Z)', r'\n\1', mk_txt)
               open(mk_path, "w").write(mk_txt)
 
-          print("File duplikat yang dihapus dari .mk:", removed_copy_lines)
+          print("Entri duplikat yang dihapus dari .mk:", removed_copy_lines)
 
           # 6. Remap protobuf 3.9.1 ke versi LineageOS 20
           for pb in ["libprotobuf-cpp-full-3.9.1", "libprotobuf-cpp-lite-3.9.1"]:
@@ -379,5 +387,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip AOSP default vintf manifest xml and rc duplicates" || exit 0
+          git commit -m "vendor: strip AOSP default vintf prebuilt_etc_xml modules" || exit 0
           git push
