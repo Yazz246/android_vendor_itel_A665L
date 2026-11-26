@@ -3169,7 +3169,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "android.media.audio.common.types-V1-cpp",
-                "audioclient-types-aidl-cpp",
                 "libbase",
                 "libbinder",
                 "liblog",
@@ -3190,7 +3189,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "android.media.audio.common.types-V1-cpp",
-                "audioclient-types-aidl-cpp",
                 "libbase",
                 "libbinder",
                 "liblog",
@@ -3224,7 +3222,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "android.media.audio.common.types-V1-cpp",
-                "audioclient-types-aidl-cpp",
                 "libaudioclient_aidl_conversion",
                 "libaudioutils",
                 "libbase",
@@ -3244,7 +3241,6 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "android.media.audio.common.types-V1-cpp",
-                "audioclient-types-aidl-cpp",
                 "libaudioclient_aidl_conversion",
                 "libaudioutils",
                 "libbase",
@@ -28010,7 +28006,6 @@ cc_prebuilt_binary {
                 "liblog",
                 "libnl",
                 "libutils",
-                "libwifi-hal",
                 "libwifi-system-iface",
                 "libxml2",
                 "android.hardware.wifi@1.0",
