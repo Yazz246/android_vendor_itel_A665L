@@ -24876,14 +24876,6 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
-prebuilt_etc_xml {
-    name: "face-default.xml",
-    owner: "itel",
-    src: "proprietary/vendor/etc/vintf/manifest/face-default.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
 
 prebuilt_etc_xml {
     name: "manifest_android.hardware.drm-service.widevine.xml",
@@ -24930,14 +24922,6 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
-prebuilt_etc_xml {
-    name: "power.stats-default.xml",
-    owner: "itel",
-    src: "proprietary/vendor/etc/vintf/manifest/power.stats-default.xml",
-    filename_from_src: true,
-    sub_dir: "vintf/manifest",
-    soc_specific: true,
-}
 
 prebuilt_etc_xml {
     name: "soter_default.xml",

@@ -6011,13 +6011,11 @@ PRODUCT_PACKAGES += \
     combinedservice.xml \
     cplog_svc-default.xml \
     enhance-default.xml \
-    face-default.xml \
     manifest_android.hardware.drm-service.widevine.xml \
     manifest_dualsim.xml \
     manifest_media_c2_V1_1_unisoc.xml \
     manifest_tneengine.xml \
     network-default.xml \
-    power.stats-default.xml \
     soter_default.xml \
     trusty-default.xml \
     vendor-fingerprintmmi-default.xml \
