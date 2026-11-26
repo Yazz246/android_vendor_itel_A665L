@@ -25,14 +25,23 @@ jobs:
               if os.path.isfile(rm_file):
                   os.remove(rm_file)
 
-          # 2. Daftar modul bentrok AOSP/LineageOS
+          # 2. Daftar modul bentrok & pola library AIDL standar AOSP
           conflict_mods = {
               "readme",
               "audioclient-types-aidl-cpp",
+              "av-types-aidl-cpp",
               "libwifi-hal",
               "boringssl_self_test32",
               "boringssl_self_test64",
           }
+          aosp_aidl_re = re.compile(
+              r'^('
+              r'.*-types-aidl-(cpp|ndk|ndk_platform)|'
+              r'android\.(hardware|frameworks|system)\..*-V\d+-(ndk|cpp|ndk_platform)|'
+              r'android\.hardware\.common-.*'
+              r')$'
+          )
+          strip_bp_refs = {"readme", "libwifi-hal"}
 
           # 3. Parse blok modul Android.bp
           blocks = []
@@ -51,12 +60,14 @@ jobs:
 
           seen = {}
           seen_sigs = set()
+          removed_mods = set(conflict_mods)
           kept_blocks = []
           for blk in blocks:
               m = re.search(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', blk)
               if m:
                   mod_name = m.group(2)
-                  if mod_name in conflict_mods:
+                  if mod_name in conflict_mods or aosp_aidl_re.match(mod_name):
+                      removed_mods.add(mod_name)
                       continue
                   sig_m = re.search(r'^\s*([a-zA-Z0-9_]+)\s*\{', blk.lstrip())
                   mod_type = sig_m.group(1) if sig_m else ""
@@ -76,10 +87,11 @@ jobs:
                       seen[mod_name] = 1
               kept_blocks.append(blk)
 
+          print("Modul bentrok yang dihapus:", sorted(removed_mods))
           content = "".join(kept_blocks)
 
-          # 4. Hapus sisa referensi modul bentrok di shared_libs / required Android.bp
-          for rmod in conflict_mods:
+          # 4. Hapus referensi modul non-Soong di Android.bp
+          for rmod in strip_bp_refs:
               content = re.sub(
                   rf'(?m)^([^\n]*\bname\s*:[^\n]*)|"{re.escape(rmod)}",?\s*',
                   lambda m: m.group(1) if m.group(1) else '',
@@ -89,7 +101,7 @@ jobs:
           # 5. Bersihkan referensi modul yang dihapus di file .mk
           for mk_path in glob.glob("**/*.mk", recursive=True):
               mk_txt = open(mk_path).read()
-              for rmod in conflict_mods:
+              for rmod in removed_mods:
                   mk_txt = re.sub(rf'(?m)^\s*{re.escape(rmod)}\s*\\?\s*\n', '', mk_txt)
               open(mk_path, "w").write(mk_txt)
 
@@ -150,6 +162,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: remove dangling references to conflicting modules" || exit 0
+          git commit -m "vendor: strip AOSP AIDL prebuilt conflicts" || exit 0
           git push
-          
