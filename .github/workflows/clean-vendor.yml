@@ -260,7 +260,29 @@ jobs:
                   content
               )
 
-          # 5. Bersihkan referensi modul & file init .rc duplikat di file .mk
+          # 5. Kumpulkan file vintf_fragments, init_rc, dan prebuilt_etc yang sudah di-install oleh Android.bp
+          vintf_files = set()
+          rc_files = set()
+          etc_files = set()
+          for m_list in re.finditer(r'\bvintf_fragments\s*:\s*\[([^\]]*)\]', content, re.DOTALL):
+              for item in re.findall(r'"([^"]+)"', m_list.group(1)):
+                  vintf_files.add(os.path.basename(item))
+          for m_list in re.finditer(r'\binit_rc\s*:\s*\[([^\]]*)\]', content, re.DOTALL):
+              for item in re.findall(r'"([^"]+)"', m_list.group(1)):
+                  rc_files.add(os.path.basename(item))
+          for blk in kept_blocks:
+              if re.search(r'^\s*prebuilt_etc(_xml)?\s*\{', blk.lstrip()):
+                  fn_m = re.search(r'\bfilename\s*:\s*"([^"]+)"', blk)
+                  src_m = re.search(r'\bsrc\s*:\s*"([^"]+)"', blk)
+                  if fn_m:
+                      etc_files.add(os.path.basename(fn_m.group(1)))
+                  elif src_m:
+                      etc_files.add(os.path.basename(src_m.group(1)))
+
+          print("VINTF fragments dari Soong:", sorted(vintf_files))
+          print("Init RC dari Soong:", sorted(rc_files))
+
+          # 6. Bersihkan referensi modul & duplikat PRODUCT_COPY_FILES di file .mk
           dup_rc_files = {
               "android.hardware.audio.service.rc",
               "android.hardware.biometrics.fingerprint@2.1-service.rc",
@@ -277,16 +299,23 @@ jobs:
               "boringssl_self_test.rc",
               "hostapd.android.rc",
               "vndservicemanager.rc",
-          }
+          } | rc_files
+
           for mk_path in glob.glob("**/*.mk", recursive=True):
               mk_txt = open(mk_path).read()
               for rmod in removed_mods:
                   mk_txt = re.sub(rf'(?m)^\s*{re.escape(rmod)}\s*\\?\s*\n', '', mk_txt)
               for rcf in dup_rc_files:
-                  mk_txt = re.sub(rf'(?m)^\s*[^\n]*/{re.escape(rcf)}:[^\n]*\n', '', mk_txt)
+                  mk_txt = re.sub(rf'(?m)^\s*[^\n]*:[^\n]*/etc/init/{re.escape(rcf)}\s*\\?\s*\n', '', mk_txt)
+              for vf in vintf_files:
+                  mk_txt = re.sub(rf'(?m)^\s*[^\n]*:[^\n]*/etc/vintf/manifest/{re.escape(vf)}\s*\\?\s*\n', '', mk_txt)
+              for ef in etc_files:
+                  mk_txt = re.sub(rf'(?m)^\s*[^\n]*:[^\n]*/etc/(?:[^\n]*/)?{re.escape(ef)}\s*\\?\s*\n', '', mk_txt)
+              # Hapus trailing backslash jika item terakhir di blok PRODUCT_COPY_FILES terhapus
+              mk_txt = re.sub(r'\\\s*\n(\s*\n|\Z)', r'\n\1', mk_txt)
               open(mk_path, "w").write(mk_txt)
 
-          # 6. Remap protobuf 3.9.1 ke versi LineageOS 20
+          # 7. Remap protobuf 3.9.1 ke versi LineageOS 20
           for pb in ["libprotobuf-cpp-full-3.9.1", "libprotobuf-cpp-lite-3.9.1"]:
               if f'name: "{pb}"' not in content:
                   content = content.replace(f'"{pb}"', f'"{pb.replace("-3.9.1", "")}"')
@@ -316,7 +345,7 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 7. Kembalikan definisi libdav1d, libminizip, dan libstagefrighthw yang dibutuhkan vendor
+          # 8. Kembalikan definisi libdav1d, libminizip, dan libstagefrighthw yang dibutuhkan vendor
           for restore_mod in ["libdav1d", "libminizip", "libstagefrighthw"]:
               if f'name: "{restore_mod}"' not in content:
                   p32 = f"proprietary/vendor/lib/{restore_mod}.so"
@@ -326,7 +355,7 @@ jobs:
                   if r32 or r64:
                       content += add_prebuilt(restore_mod, r32, r64)
 
-          # 8. Salin & daftarkan libc++_shared dari NDK bawaan runner
+          # 9. Salin & daftarkan libc++_shared dari NDK bawaan runner
           if 'name: "libc++_shared"' not in content:
               all_cxx = [s for s in glob.glob("/usr/local/lib/android/**/libc++_shared.so", recursive=True) if os.path.isfile(s)]
               m32 = sorted([s for s in all_cxx if "armeabi-v7a" in s or "arm-linux-androideabi" in s])
@@ -336,7 +365,7 @@ jobs:
                   shutil.copy(m64[-1], "proprietary/vendor/lib64/libc++_shared.so")
                   content += add_prebuilt("libc++_shared", "proprietary/vendor/lib/libc++_shared.so", "proprietary/vendor/lib64/libc++_shared.so")
 
-          # 9. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
+          # 10. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
           for rt, sub in [("libclang_rt.ubsan_standalone-aarch64-android", "lib64"), ("libclang_rt.ubsan_standalone-arm-android", "lib")]:
               if f'name: "{rt}"' not in content:
                   src = sorted([s for s in glob.glob(f"/usr/local/lib/android/**/{rt}.so", recursive=True) if os.path.isfile(s)])
@@ -353,5 +382,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: restore libstagefrighthw and strip libtinyxml" || exit 0
+          git commit -m "vendor: strip duplicate vintf_fragments and init_rc from PRODUCT_COPY_FILES" || exit 0
           git push
