@@ -5505,7 +5505,6 @@ PRODUCT_PACKAGES += \
     lib_crypto \
     lib_hdr10plus_tm \
     libatci \
-    libaudioclient_aidl_conversion \
     libavcodec-58 \
     libavutil-56 \
     libbluetooth_audio_session \
@@ -5584,13 +5583,11 @@ PRODUCT_PACKAGES += \
     libteec \
     libteecPlatform \
     libteeproduction \
-    libtrusty \
     libtrustyHalHelper \
     libufsprotect \
     libufwriter \
     libusc \
     libvbeffect \
-    libvibrator \
     libvideo_share_memory \
     libvirtrpmb \
     libwcn-vendor \
@@ -5639,7 +5636,6 @@ PRODUCT_PACKAGES += \
     libaudiomiscctl_normal \
     libaudionpinv \
     libbqbbt \
-    libcodec2_hidl_plugin \
     libcodec2_unisoc_av1dec \
     libcodec2_unisoc_avcdec \
     libcodec2_unisoc_avcenc \
@@ -5663,14 +5659,11 @@ PRODUCT_PACKAGES += \
     libomx_mp3dec_sprd \
     libresample48kto44k \
     libsmartamp \
-    libstagefright_soft_mjpgdec \
-    libstagefright_softomx_plugin \
     libtinyalsa_utils \
     libtinycompress_unisoc \
     libtinyxml \
     libtracedump \
     libvbpga \
-    libvpx \
     libwvaidl \
     autotestfinger \
     autotestotg \
@@ -5718,7 +5711,6 @@ PRODUCT_PACKAGES += \
     libcppbor_external \
     libefuse \
     libengbt \
-    libhwc2onfbadapter \
     libimageClassify \
     libkernelbootcp.trusty \
     libkeystore-wifi-hidl \
@@ -6059,7 +6051,6 @@ PRODUCT_PACKAGES += \
     SoterService \
     ims \
     ai_engine-default.xml \
-    android.hardware.gatekeeper@1.0-service.trusty.xml \
     android.hardware.security.keymint@2.0-unisoc.service.trusty.xml \
     bluetooth_audio.xml \
     combinedservice.xml \
@@ -6098,7 +6089,6 @@ PRODUCT_PACKAGES += \
     enhance_test \
     gpsd \
     android.hardware.bluetooth@1.1-service.unisoc \
-    android.hardware.gatekeeper@1.0-service.trusty \
     android.hardware.media.c2@1.1-unisoc-service \
     android.hardware.security.keymint@2.0-unisoc.service.trusty \
     urild \
