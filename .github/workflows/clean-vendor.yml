@@ -89,10 +89,10 @@ jobs:
               "libbt-stack", "libbt-utils", "libbufferhub",
               "libbufferhubqueue",
               "libc", "libc++", "libc++abi", "libcamera2ndk",
-              "libcamera_client", "libcamera_metadata", "libcameraservice",
-              "libcap", "libcgrouprc", "libchrome", "libcld80211",
-              "libclearkeycasplugin", "libcompiler_rt", "libcppbor",
-              "libcppbor_external", "libcppcose_rkp", "libcrypto",
+              "libcamera2ndk_vendor", "libcamera_client", "libcamera_metadata",
+              "libcameraservice", "libcap", "libcgrouprc", "libchrome",
+              "libcld80211", "libclearkeycasplugin", "libcompiler_rt",
+              "libcppbor", "libcppbor_external", "libcppcose_rkp", "libcrypto",
               "libcrypto_utils", "libcups", "libcurl", "libcutils",
               "libdatasource", "libdebuggerd_client", "libdexfile",
               "libdexfile_external", "libdisplaysystem", "libdl",
@@ -102,7 +102,8 @@ jobs:
               "libdynamic_depth", "libdynproc",
               "libEGL", "libeffects", "libeffectsconfig", "libeigen",
               "liberror_prone_annotations", "libevent", "libexif", "libexpat",
-              "libfiemap", "libfilterfw",
+              "libext4_utils",
+              "libf2fs_sparseblock", "libfec", "libfiemap", "libfilterfw",
               "libfilterpack_imageproc", "libflac", "libflatbuffers-cpp",
               "libfmq", "libfsmgr_binder", "libft2", "libfuse",
               "libGLESv1_CM", "libGLESv2", "libGLESv3", "libgatekeeper",
@@ -123,16 +124,16 @@ jobs:
               "libkeystore-engine-wifi-hidl", "libkeystore2_crypto", "libkll",
               "libkm_compat",
               "liblayers_proto", "libldacBT_abr", "libldacBT_enc",
-              "liblodepng", "liblog", "liblogcat", "liblogwrap",
+              "liblodepng", "liblog", "liblogcat", "liblogwrap", "liblp",
               "liblz4", "liblzma",
               "libm", "libmath", "libmdnssd", "libmedia",
               "libmedia_aidl_conversion", "libmedia_codeclist",
               "libmedia_helper", "libmedia_jni_utils", "libmedia_omx",
               "libmediadrm", "libmediaextractor", "libmediametrics",
-              "libmediandk", "libmediautils", "libmeminfo", "libmemtrack",
-              "libmemunreachable", "libmetricslogger", "libminijail",
-              "libminikin", "libmkbootimg_abi_check",
-              "libmodpb64", "libmtp",
+              "libmediandk", "libmediautils", "libmediautils_vendor",
+              "libmeminfo", "libmemtrack", "libmemunreachable",
+              "libmetricslogger", "libminijail", "libminikin",
+              "libmkbootimg_abi_check", "libmodpb64", "libmtp",
               "libnativedisplay", "libnativehelper", "libnativeloader",
               "libnativewindow", "libnbaio", "libnbaio_mono", "libnetd_client",
               "libnetlink", "libnetutils", "libnfc-nci", "libnfc_nci_jni",
@@ -149,11 +150,12 @@ jobs:
               "librilutils", "librs_jni", "librtp_jni", "librustutils",
               "libruy",
               "libselinux", "libsensor", "libsensorservice",
-              "libsensorservicehidl", "libsepol", "libservices", "libsigchain",
-              "libskia", "libsoft_attestation_cert", "libsonivox",
-              "libsoundpool", "libsoundtrigger", "libsoundtriggerservice",
-              "libsparse", "libspeexresampler", "libsqlite", "libssl",
-              "libstagefright", "libstagefright_foundation", "libstatspull",
+              "libsensorservicehidl", "libsepol", "libservices", "libshmemcompat",
+              "libshmemutil", "libsigchain", "libskia",
+              "libsoft_attestation_cert", "libsonivox", "libsoundpool",
+              "libsoundtrigger", "libsoundtriggerservice", "libsparse",
+              "libspeexresampler", "libsqlite", "libssl", "libstagefright",
+              "libstagefright_foundation", "libstagefrighthw", "libstatspull",
               "libstatssocket", "libstdc++", "libsurfaceflinger",
               "libsurfaceflinger_client", "libsuspend", "libsync",
               "libsysutils",
@@ -162,7 +164,7 @@ jobs:
               "libtinyalsa", "libtinycompress", "libtinyxml2",
               "libtombstoned_client", "libtrusty",
               "libui", "libultrahdr", "libunwindstack", "libusbhost",
-              "libutils",
+              "libutils", "libutilscallstack",
               "libvibrator", "libvibratorutils", "libvndksupport",
               "libvorbisidec", "libvpx", "libvulkan",
               "libwebp-decode", "libwebp-encode",
@@ -314,7 +316,7 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 7. Kembalikan definisi libdav1d & libminizip (static-only di AOSP, dibutuhkan vendor)
+          # 7. Pastikan libdav1d & libminizip tetap terdaftar (static-only di AOSP, dibutuhkan vendor)
           for restore_mod in ["libdav1d", "libminizip"]:
               if f'name: "{restore_mod}"' not in content:
                   p32 = f"proprietary/vendor/lib/{restore_mod}.so"
@@ -351,5 +353,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: restore libminizip shared prebuilt required by tranlog" || exit 0
+          git commit -m "vendor: strip libmediautils_vendor and remaining AOSP vendor_available libs" || exit 0
           git push
