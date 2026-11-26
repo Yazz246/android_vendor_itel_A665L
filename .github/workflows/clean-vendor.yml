@@ -67,7 +67,7 @@ jobs:
               "power.default",
               "thermal.default",
               "vibrator.default",
-              # Library Shared AOSP A-Z (tidak termasuk static-only seperti libdav1d & libminizip)
+              # Library Shared AOSP A-Z
               "libaaudio", "libaaudio_internal", "libacryl",
               "libadbconnection_client", "libadbd_auth", "libadbd_fs",
               "libamidi", "libandroid", "libandroid_net", "libandroid_runtime",
@@ -155,13 +155,13 @@ jobs:
               "libsoft_attestation_cert", "libsonivox", "libsoundpool",
               "libsoundtrigger", "libsoundtriggerservice", "libsparse",
               "libspeexresampler", "libsqlite", "libssl", "libstagefright",
-              "libstagefright_foundation", "libstagefrighthw", "libstatspull",
+              "libstagefright_foundation", "libstatspull",
               "libstatssocket", "libstdc++", "libsurfaceflinger",
               "libsurfaceflinger_client", "libsuspend", "libsync",
               "libsysutils",
               "libtextclassifier", "libtextclassifier_hash", "libtflite",
               "libthermal", "libtiff_directory",
-              "libtinyalsa", "libtinycompress", "libtinyxml2",
+              "libtinyalsa", "libtinycompress", "libtinyxml", "libtinyxml2",
               "libtombstoned_client", "libtrusty",
               "libui", "libultrahdr", "libunwindstack", "libusbhost",
               "libutils", "libutilscallstack",
@@ -316,8 +316,8 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 7. Pastikan libdav1d & libminizip tetap terdaftar (static-only di AOSP, dibutuhkan vendor)
-          for restore_mod in ["libdav1d", "libminizip"]:
+          # 7. Kembalikan definisi libdav1d, libminizip, dan libstagefrighthw yang dibutuhkan vendor
+          for restore_mod in ["libdav1d", "libminizip", "libstagefrighthw"]:
               if f'name: "{restore_mod}"' not in content:
                   p32 = f"proprietary/vendor/lib/{restore_mod}.so"
                   p64 = f"proprietary/vendor/lib64/{restore_mod}.so"
@@ -353,5 +353,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip libmediautils_vendor and remaining AOSP vendor_available libs" || exit 0
+          git commit -m "vendor: restore libstagefrighthw and strip libtinyxml" || exit 0
           git push
