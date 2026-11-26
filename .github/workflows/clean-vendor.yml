@@ -30,15 +30,17 @@ jobs:
               "readme",
               "audioclient-types-aidl-cpp",
               "av-types-aidl-cpp",
+              "framework-permission-aidl-cpp",
               "libwifi-hal",
               "boringssl_self_test32",
               "boringssl_self_test64",
           }
           aosp_aidl_re = re.compile(
               r'^('
-              r'.*-types-aidl-(cpp|ndk|ndk_platform)|'
+              r'(?!vendor\.|.*sprd|.*unisoc).*-aidl-(cpp|ndk|ndk_platform|java|rust)|'
               r'android\.(hardware|frameworks|system)\..*-V\d+-(ndk|cpp|ndk_platform)|'
-              r'android\.hardware\.common-.*'
+              r'android\.hardware\.common-.*|'
+              r'(netd|dnsresolver|vold|wificond)_aidl_interface-.*'
               r')$'
           )
           strip_bp_refs = {"readme", "libwifi-hal"}
@@ -162,5 +164,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip AOSP AIDL prebuilt conflicts" || exit 0
+          git commit -m "vendor: remove remaining AOSP *-aidl-* prebuilt duplicates" || exit 0
           git push
+          
