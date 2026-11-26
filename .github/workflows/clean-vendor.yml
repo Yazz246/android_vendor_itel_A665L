@@ -1,0 +1,155 @@
+name: Clean Vendor Tree
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  clean:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout Vendor Tree
+        uses: actions/checkout@v4
+
+      - name: Bersihkan Android.bp, .mk, dan Salin Library Hilang
+        run: |
+          python3 - << 'EOF'
+          import glob, os, re, shutil
+
+          p = "Android.bp"
+
+          # 1. Hapus file readme tidak terpakai di proprietary
+          for rm_file in glob.glob("proprietary/**/readme", recursive=True):
+              if os.path.isfile(rm_file):
+                  os.remove(rm_file)
+
+          # 2. Daftar modul bentrok AOSP/LineageOS
+          conflict_mods = {
+              "readme",
+              "audioclient-types-aidl-cpp",
+              "libwifi-hal",
+              "boringssl_self_test32",
+              "boringssl_self_test64",
+          }
+
+          # 3. Parse blok modul Android.bp
+          blocks = []
+          cur = []
+          depth = 0
+          for line in open(p):
+              cur.append(line)
+              clean = line.split("//")[0]
+              depth += clean.count("{") - clean.count("}")
+              if depth <= 0 and cur:
+                  blocks.append("".join(cur))
+                  cur = []
+                  depth = 0
+          if cur:
+              blocks.append("".join(cur))
+
+          seen = {}
+          seen_sigs = set()
+          kept_blocks = []
+          for blk in blocks:
+              m = re.search(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', blk)
+              if m:
+                  mod_name = m.group(2)
+                  if mod_name in conflict_mods:
+                      continue
+                  sig_m = re.search(r'^\s*([a-zA-Z0-9_]+)\s*\{', blk.lstrip())
+                  mod_type = sig_m.group(1) if sig_m else ""
+                  sub_m = re.search(r'\bsub_dir\s*:\s*"([^"]+)"', blk)
+                  sub_dir = sub_m.group(1) if sub_m else ""
+                  fn_m = re.search(r'\bfilename\s*:\s*"([^"]+)"', blk)
+                  fn_name = fn_m.group(1) if fn_m else mod_name
+                  sig = (mod_type, sub_dir, fn_name)
+                  if sig in seen_sigs:
+                      continue
+                  seen_sigs.add(sig)
+                  if mod_name in seen:
+                      seen[mod_name] += 1
+                      new_name = f"{mod_name}_dup_{seen[mod_name]}"
+                      blk = re.sub(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', rf'\g<1>{new_name}\g<3>', blk, count=1)
+                  else:
+                      seen[mod_name] = 1
+              kept_blocks.append(blk)
+
+          content = "".join(kept_blocks)
+
+          # 4. Hapus sisa referensi modul bentrok di shared_libs / required Android.bp
+          for rmod in conflict_mods:
+              content = re.sub(
+                  rf'(?m)^([^\n]*\bname\s*:[^\n]*)|"{re.escape(rmod)}",?\s*',
+                  lambda m: m.group(1) if m.group(1) else '',
+                  content
+              )
+
+          # 5. Bersihkan referensi modul yang dihapus di file .mk
+          for mk_path in glob.glob("**/*.mk", recursive=True):
+              mk_txt = open(mk_path).read()
+              for rmod in conflict_mods:
+                  mk_txt = re.sub(rf'(?m)^\s*{re.escape(rmod)}\s*\\?\s*\n', '', mk_txt)
+              open(mk_path, "w").write(mk_txt)
+
+          # 6. Remap protobuf 3.9.1 ke versi LineageOS 20
+          for pb in ["libprotobuf-cpp-full-3.9.1", "libprotobuf-cpp-lite-3.9.1"]:
+              if f'name: "{pb}"' not in content:
+                  content = content.replace(f'"{pb}"', f'"{pb.replace("-3.9.1", "")}"')
+
+          def add_prebuilt(mod_name, rel32, rel64):
+              targets = []
+              if rel32:
+                  targets.append(f'        android_arm: {{\n            srcs: ["{rel32}"],\n        }},')
+              if rel64:
+                  targets.append(f'        android_arm64: {{\n            srcs: ["{rel64}"],\n        }},')
+              if not targets:
+                  return ""
+              multilib = "both" if (rel32 and rel64) else ("64" if rel64 else "32")
+              return (
+                  f'\ncc_prebuilt_library_shared {{\n'
+                  f'    name: "{mod_name}",\n'
+                  f'    owner: "itel",\n'
+                  f'    strip: {{\n        none: true,\n    }},\n'
+                  f'    target: {{\n' + "\n".join(targets) + '\n    },\n'
+                  f'    compile_multilib: "{multilib}",\n'
+                  f'    check_elf_files: false,\n'
+                  f'    prefer: true,\n'
+                  f'    soc_specific: true,\n'
+                  f'}}\n'
+              )
+
+          os.makedirs("proprietary/vendor/lib", exist_ok=True)
+          os.makedirs("proprietary/vendor/lib64", exist_ok=True)
+
+          # 7. Salin & daftarkan libc++_shared dari NDK bawaan runner
+          if 'name: "libc++_shared"' not in content:
+              all_cxx = [s for s in glob.glob("/usr/local/lib/android/**/libc++_shared.so", recursive=True) if os.path.isfile(s)]
+              m32 = sorted([s for s in all_cxx if "armeabi-v7a" in s or "arm-linux-androideabi" in s])
+              m64 = sorted([s for s in all_cxx if "arm64-v8a" in s or "aarch64-linux-android" in s])
+              if m32 and m64:
+                  shutil.copy(m32[-1], "proprietary/vendor/lib/libc++_shared.so")
+                  shutil.copy(m64[-1], "proprietary/vendor/lib64/libc++_shared.so")
+                  content += add_prebuilt("libc++_shared", "proprietary/vendor/lib/libc++_shared.so", "proprietary/vendor/lib64/libc++_shared.so")
+
+          # 8. Salin & daftarkan libclang_rt.ubsan_standalone dari NDK bawaan runner
+          for rt, sub in [("libclang_rt.ubsan_standalone-aarch64-android", "lib64"), ("libclang_rt.ubsan_standalone-arm-android", "lib")]:
+              if f'name: "{rt}"' not in content:
+                  src = sorted([s for s in glob.glob(f"/usr/local/lib/android/**/{rt}.so", recursive=True) if os.path.isfile(s)])
+                  if src:
+                      dst = f"proprietary/vendor/{sub}/{rt}.so"
+                      shutil.copy(src[-1], dst)
+                      content += add_prebuilt(rt, dst if sub == "lib" else None, dst if sub == "lib64" else None)
+
+          open(p, "w").write(content)
+          EOF
+
+      - name: Push Perubahan ke Branch Main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "vendor: remove dangling references to conflicting modules" || exit 0
+          git push
+          
