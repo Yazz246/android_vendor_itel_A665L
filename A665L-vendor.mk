@@ -5622,7 +5622,6 @@ PRODUCT_PACKAGES += \
     libsmartamp \
     libtinyalsa_utils \
     libtinycompress_unisoc \
-    libtinyxml \
     libtracedump \
     libvbpga \
     libwvaidl \
