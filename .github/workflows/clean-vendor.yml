@@ -45,22 +45,76 @@ jobs:
               "zygote", "zygote64", "lmkd", "tombstoned", "statsd",
               "keystore2", "gatekeeperd", "wpa_supplicant", "hostapd",
               "iptables", "ip6tables", "ip", "tc",
-              # Library inti AOSP
+              # Keymaster / Keymint / Gatekeeper / Keystore / Crypto
+              "lib_android_keymaster_keymint_utils",
+              "libkeymaster4", "libkeymaster41", "libkeymaster4support",
+              "libkeymaster_messages", "libkeymaster_portable",
+              "libpuresoftkeymasterdevice", "libsoft_attestation_cert",
+              "libkeymint", "libcppbor", "libcppcose_rkp",
+              "libgatekeeper",
+              "libkeystore-attestation-application-id",
+              "libkeystore-engine-wifi-hidl", "libkeystore2_crypto",
+              "libcrypto", "libcrypto_utils", "libssl",
+              "libminijail", "libcap", "libselinux", "libsepol",
+              # Core / Runtime / HIDL / Protobuf / Utility AOSP
               "libc", "libm", "libdl", "liblog", "libcutils", "libutils",
-              "libbinder", "libhidlbase", "libhidltransport", "libhwbinder",
-              "libbase", "libz", "libcrypto", "libssl", "libui", "libgui",
-              "libhardware", "libhardware_legacy", "libselinux", "libvndksupport",
-              "libsqlite", "libxml2", "libexpat", "libpng", "libjpeg", "libpcre2",
-              "libstagefright", "libstagefright_foundation", "libmedia",
-              "libaudioclient", "libcamera_client", "libfmq", "libion",
-              "libtinyxml2", "libjsoncpp", "libcurl", "liblz4", "liblzma",
+              "libbase", "libbinder", "libbinder_ndk",
+              "libhidlbase", "libhidltransport", "libhwbinder",
+              "libhidlallocatorutils", "libhidlmemory", "libfmq", "libvndksupport",
+              "libunwindstack", "libbacktrace", "liblzma", "liblz4", "libz",
+              "libziparchive", "libdebuggerd_client", "libtombstoned_client",
+              "libprocinfo", "libprocessgroup", "libcgrouprc",
+              "libmeminfo", "libmemtrack", "libion", "libdmabufheap",
+              "libjsoncpp", "libtinyxml2", "libxml2", "libexpat",
+              "libsqlite", "libpcre2", "libcurl", "libnl", "libpcap",
+              "libevent", "libchrome", "libmodpb64",
+              "libprotobuf-cpp-full", "libprotobuf-cpp-lite",
+              # Graphics / UI / Media / Audio / Camera / Connectivity AOSP
+              "libui", "libgui", "libhardware", "libhardware_legacy",
+              "libgralloctypes", "libdrm", "libsync", "libnativewindow",
+              "libnativedisplay", "libarect", "libmath",
+              "libEGL", "libGLESv1_CM", "libGLESv2", "libGLESv3", "libvulkan",
+              "libyuv", "libjpeg", "libpng", "libexif", "libheif",
+              "libwebp-decode", "libwebp-encode",
+              "libstagefright", "libstagefright_foundation",
+              "libstagefright_bufferpool@2.0", "libstagefright_bufferpool@2.0.1",
+              "libstagefright_bufferqueue_helper", "libstagefright_omx",
+              "libstagefright_omx_utils", "libstagefright_xmlparser",
+              "libstagefright_amrnb_common", "libstagefright_enc_common",
+              "libstagefright_flacdec", "libstagefright_softomx",
+              "libmedia", "libmedia_codeclist", "libmedia_helper",
+              "libmedia_omx", "libmediandk", "libmediautils",
+              "libaudioclient", "libaudiofoundation", "libaudiomanager",
+              "libaudiopolicy", "libaudioutils", "libnbaio", "libnbaio_mono",
+              "libeffects", "libeffectsconfig", "libalsautils",
+              "libtinyalsa", "libtinycompress",
+              "libcamera_client", "libcamera_metadata", "libcameraservice",
+              "libcodec2", "libcodec2_vndk", "libcodec2_soft_common",
+              "libsfplugin_ccodec", "libsfplugin_ccodec_utils",
+              "libwifi-system", "libwifi-system-iface", "libcld80211",
+              "libwpa_client", "libnetutils", "libnetd_client",
+              "libiprouteutil", "libnetlink",
+              "libril", "librilutils", "libreference-ril",
+              "libbluetooth_gd", "libbt-bta", "libbt-common", "libbt-hci",
+              "libbt-sbc-decoder", "libbt-sbc-encoder", "libbt-stack",
+              "libbt-utils", "libosi",
           }
-          aosp_aidl_re = re.compile(
+
+          # Jangan pernah hapus modul proprietary Unisoc / Spreadtrum / Itel
+          vendor_keep_re = re.compile(
+              r'(sprd|unisoc|itel|transsion|sc98|ums|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|trusty)',
+              re.IGNORECASE
+          )
+
+          # Pola antarmuka AIDL & HIDL standar AOSP
+          aosp_iface_re = re.compile(
               r'^('
-              r'(?!vendor\.|.*sprd|.*unisoc).*-aidl-(cpp|ndk|ndk_platform|java|rust)|'
-              r'android\.(hardware|frameworks|system)\..*-V\d+-(ndk|cpp|ndk_platform)|'
-              r'android\.hardware\.common-.*|'
-              r'(netd|dnsresolver|vold|wificond)_aidl_interface-.*'
+              r'(?!vendor\.).*-aidl-(cpp|ndk|ndk_platform|java|rust)|'
+              r'android\.(hardware|hidl|frameworks|system)\..*|'
+              r'(netd|dnsresolver|vold|wificond)_aidl_interface-.*|'
+              r'libcodec2_hidl@.*|'
+              r'lib_android_keymaster.*|'
+              r'libkeymaster.*'
               r')$'
           )
           strip_bp_refs = {"readme", "libwifi-hal"}
@@ -88,7 +142,8 @@ jobs:
               m = re.search(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', blk)
               if m:
                   mod_name = m.group(2)
-                  if mod_name in conflict_mods or aosp_aidl_re.match(mod_name):
+                  is_vendor_prop = bool(vendor_keep_re.search(mod_name))
+                  if not is_vendor_prop and (mod_name in conflict_mods or aosp_iface_re.match(mod_name)):
                       removed_mods.add(mod_name)
                       continue
                   sig_m = re.search(r'^\s*([a-zA-Z0-9_]+)\s*\{', blk.lstrip())
@@ -109,7 +164,7 @@ jobs:
                       seen[mod_name] = 1
               kept_blocks.append(blk)
 
-          print("Modul bentrok yang dihapus:", sorted(removed_mods))
+          print(f"Total modul AOSP bentrok yang dihapus: {len(removed_mods)}")
           content = "".join(kept_blocks)
 
           # 4. Hapus referensi modul non-Soong di Android.bp
@@ -184,5 +239,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip AOSP core binary and library prebuilt duplicates" || exit 0
+          git commit -m "vendor: sweep all AOSP vendor_available prebuilt duplicates" || exit 0
           git push
