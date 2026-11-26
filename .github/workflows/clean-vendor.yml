@@ -46,41 +46,44 @@ jobs:
               "libaaudio", "libaaudio_internal", "libacryl",
               "libadbconnection_client", "libadbd_auth", "libadbd_fs",
               "libamidi", "libandroid", "libandroid_net", "libandroid_runtime",
-              "libandroidfw", "libappfuse", "libarect", "libartpalette-system",
-              "libasync_safe", "libaudioclient", "libaudioclient_aidl_conversion",
-              "libaudio_aidl_conversion_common_ndk", "libaudiofoundation",
-              "libaudiomanager", "libaudiopolicy", "libaudiopolicycomponents",
-              "libaudiopolicyengine_common", "libaudiopolicyengineconfigurable",
-              "libaudiopolicyenginedefault", "libaudiopolicymanager",
-              "libaudiopolicymanagerdefault", "libaudioutils",
-              "libavservices_minijail",
+              "libandroid_runtime_lazy", "libandroid_servers", "libandroidfw",
+              "libappfuse", "libarect", "libartbase", "libartpalette",
+              "libartpalette-system", "libasync_safe", "libaudioclient",
+              "libaudioclient_aidl_conversion",
+              "libaudio_aidl_conversion_common_ndk", "libaudio_system_headers",
+              "libaudioeffect_jni", "libaudioflinger", "libaudiofoundation",
+              "libaudiomanager", "libaudiopolicy", "libaudioprocessing",
+              "libaudiospdif", "libaudioutils", "libavservices_minijail",
+              "libavservices_minijail_vendor",
               # B
-              "libbacktrace", "libbase", "libbinder", "libbinder_ndk",
-              "libbinderthreadstateutils", "libblas", "libbluetooth_gd",
-              "libbrotli", "libbt-bta", "libbt-common", "libbt-hci",
-              "libbt-sbc-decoder", "libbt-sbc-encoder", "libbt-stack",
-              "libbt-utils", "libbufferhub", "libbufferhubqueue",
+              "libbacktrace", "libbase", "libbcc", "libbcinfo", "libbinder",
+              "libbinder_ndk", "libbinderdebug", "libbinderthreadstateutils",
+              "libblas", "libbluetooth_gd", "libboringssl", "libbrotli",
+              "libbt-bta", "libbt-common", "libbt-hci", "libbt-sbc-decoder",
+              "libbt-sbc-encoder", "libbt-stack", "libbt-utils",
+              "libbufferhub", "libbufferhubqueue",
               # C
-              "libc", "libc++", "libc++abi", "libcamera_client",
-              "libcamera_metadata", "libcameraservice", "libcap", "libcgrouprc",
-              "libchrome", "libcld80211", "libcompiler_rt", "libcppbor",
-              "libcppcose_rkp", "libcrypto", "libcrypto_utils", "libcups",
-              "libcurl", "libcutils",
+              "libc", "libc++", "libc++abi", "libcamera2ndk",
+              "libcamera_client", "libcamera_metadata", "libcameraservice",
+              "libcap", "libcgrouprc", "libchrome", "libcld80211",
+              "libcompiler_rt", "libcppbor", "libcppcose_rkp", "libcrypto",
+              "libcrypto_utils", "libcups", "libcurl", "libcutils",
               # D
               "libdatasource", "libdebuggerd_client", "libdexfile",
               "libdexfile_external", "libdl", "libdl_android", "libdmabufheap",
-              "libdrm", "libdrmframework", "libdrmframeworkcommon",
+              "libdng_sdk", "libdrm", "libdrmframework", "libdrmframeworkcommon",
               "libdumpstateaidl", "libdumpstateutil", "libdynamic_depth",
               # E
               "libEGL", "libeffects", "libeffectsconfig", "libeigen",
               "liberror_prone_annotations", "libevent", "libexif", "libexpat",
               # F
-              "libfec", "libfiemap", "libflatbuffers-cpp", "libfmq",
-              "libfs_mgr", "libfsmgr_binder", "libft2",
+              "libfec", "libfiemap", "libfilterfw", "libfilterpack_imageproc",
+              "libflac", "libflatbuffers-cpp", "libfmq", "libfs_mgr",
+              "libfsmgr_binder", "libft2", "libfuse",
               # G
               "libGLESv1_CM", "libGLESv2", "libGLESv3", "libgatekeeper",
               "libgccunwind", "libgemmlowp", "libgralloctypes",
-              "libgtest_prod", "libgui",
+              "libgraphicsenv", "libgsi", "libgtest_prod", "libgui",
               # H
               "libhardware", "libhardware_legacy", "libharfbuzz_ng", "libheif",
               "libhidl-gen-utils", "libhidlallocatorutils", "libhidlbase",
@@ -90,9 +93,10 @@ jobs:
               "libicui18n", "libicuuc", "libimage_io", "libimg_utils",
               "libincident", "libinput", "libinputflinger",
               "libinputflinger_base", "libion", "libiprouteutil", "libiterate",
+              "libiwlan",
               # J - K
-              "libjpeg", "libjsoncpp", "libkeymint",
-              "libkeystore-attestation-application-id",
+              "libjnihelper", "libjnigraphics", "libjpeg", "libjsoncpp",
+              "libkeymint", "libkeystore-attestation-application-id",
               "libkeystore-engine-wifi-hidl", "libkeystore2_crypto", "libkll",
               # L
               "liblayers_proto", "libldacBT_abr", "libldacBT_enc",
@@ -101,16 +105,16 @@ jobs:
               # M
               "libm", "libmath", "libmdnssd", "libmedia",
               "libmedia_aidl_conversion", "libmedia_codeclist",
-              "libmedia_helper", "libmedia_omx", "libmediadrm",
-              "libmediadrmmetrics_consumer", "libmediadrmmetrics_full",
-              "libmediadrmmetrics_lite", "libmediaextractor",
-              "libmediametrics", "libmediandk", "libmediautils",
-              "libmeminfo", "libmemtrack", "libmemunreachable", "libminijail",
-              "libminikin", "libmkbootimg_abi_check", "libmodpb64", "libmtp",
+              "libmedia_helper", "libmedia_jni_utils", "libmedia_omx",
+              "libmediadrm", "libmediaextractor", "libmediametrics",
+              "libmediandk", "libmediautils", "libmeminfo", "libmemtrack",
+              "libmemunreachable", "libminijail", "libminikin",
+              "libmkbootimg_abi_check", "libmodpb64", "libmtp",
               # N
               "libnativedisplay", "libnativehelper", "libnativeloader",
               "libnativewindow", "libnbaio", "libnbaio_mono", "libnetd_client",
-              "libnetlink", "libnetutils", "libnfc-nci", "libnl", "libnnapi",
+              "libnetlink", "libnetutils", "libnfc-nci", "libnfc_nci_jni",
+              "libnl", "libnnapi",
               # O
               "libopenjdk", "libopenjdkjvm", "libopenjdkjvmti",
               "libopus", "libosi",
@@ -135,9 +139,10 @@ jobs:
               "libsurfaceflinger_client", "libsuspend", "libsync",
               "libsysutils",
               # T
-              "libtextclassifier", "libtextclassifier_hash", "libthermal",
-              "libtiff_directory", "libtinyalsa", "libtinycompress",
-              "libtinyxml2", "libtombstoned_client", "libtrusty",
+              "libtextclassifier", "libtextclassifier_hash", "libtflite",
+              "libtflite_static", "libthermal", "libtiff_directory",
+              "libtinyalsa", "libtinycompress", "libtinyxml2",
+              "libtombstoned_client", "libtrusty",
               # U
               "libui", "libultrahdr", "libunwindstack", "libusbhost",
               "libutils",
@@ -154,11 +159,11 @@ jobs:
 
           # Lindungi seluruh modul proprietary Unisoc / Spreadtrum / Itel
           vendor_keep_re = re.compile(
-              r'(sprd|unisoc|itel|transsion|sc98|ums|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710)',
+              r'(sprd|unisoc|itel|transsion|sc98|ums\d|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|mali|powervr|rogue|goodix|silead|chipone|focaltech|novatek|ilitek|himax|synaptics|egistec|sunwave|cdfinger|betterlife|microarray|nvitem|engpc|ylog|cplog|phasecheck)',
               re.IGNORECASE
           )
 
-          # Pola otomatis untuk AIDL, HIDL, Stagefright, Codec2, Keymaster AOSP
+          # Pola otomatis untuk keluarga library & antarmuka standar AOSP
           aosp_pattern_re = re.compile(
               r'^('
               r'(?!vendor\.).*-aidl-(cpp|ndk|ndk_platform|java|rust)|'
@@ -170,6 +175,13 @@ jobs:
               r'libsfplugin_ccodec.*|'
               r'lib_android_keymaster.*|'
               r'libkeymaster.*|'
+              r'libbinder.*|'
+              r'libhidl.*|'
+              r'libaudiopolicy.*|'
+              r'libmediadrm.*|'
+              r'libneuralnetworks.*|'
+              r'libext2.*|'
+              r'libbpf.*|'
               r'libalsautils'
               r')$'
           )
@@ -295,5 +307,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: sweep all A-Z AOSP and *_aidl_conversion prebuilt conflicts" || exit 0
+          git commit -m "vendor: sweep libbinderdebug and full A-Z AOSP prebuilt conflicts" || exit 0
           git push
