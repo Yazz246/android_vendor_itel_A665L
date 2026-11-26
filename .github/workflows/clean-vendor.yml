@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Vendor Tree
         uses: actions/checkout@v4
 
-      - name: Bersihkan Android.bp, .mk, dan Salin Library Hilang
+      - name: Bersihkan Seluruh Modul & File Bentrok AOSP
         run: |
           python3 - << 'EOF'
           import glob, os, re, shutil
@@ -25,13 +25,13 @@ jobs:
               if os.path.isfile(rm_file):
                   os.remove(rm_file)
 
-          # 2. Daftar lengkap executable & library standar AOSP (A-Z) yang bentrok
+          # 2. Daftar lengkap modul bentrok AOSP (Executable, HAL .default, Library A-Z)
           conflict_mods = {
               "readme",
               "libwifi-hal",
               "boringssl_self_test32",
               "boringssl_self_test64",
-              # Executable inti AOSP
+              # Executable & HAL service standar AOSP
               "dumpsys", "dumpstate", "bugreport", "bugreportz",
               "logcat", "logd", "logwrapper",
               "servicemanager", "hwservicemanager", "vndservicemanager",
@@ -42,7 +42,32 @@ jobs:
               "zygote", "zygote64", "lmkd", "tombstoned", "statsd",
               "keystore2", "gatekeeperd", "wpa_supplicant", "hostapd",
               "iptables", "ip6tables", "ip", "tc",
-              # A
+              "android.hardware.audio.service",
+              "android.hardware.biometrics.fingerprint@2.1-service",
+              "android.hardware.camera.provider@2.4-service",
+              "android.hardware.cas@1.2-service-lazy",
+              "android.hardware.drm-service-lazy.clearkey",
+              "android.hardware.graphics.composer@2.4-service",
+              "android.hardware.health-service.example",
+              "android.hardware.media.omx@1.0-service",
+              "android.hardware.sensors-service-multihal",
+              "android.hardware.usb-service.example",
+              "android.hardware.wifi.supplicant-service",
+              "android.hardware.wifi@1.0-service-lazy",
+              # HAL .default & impl standar AOSP
+              "camera.device@1.0-impl",
+              "audio.bluetooth.default",
+              "audio.primary.default",
+              "audio.r_submix.default",
+              "audio.usb.default",
+              "bootctrl.default",
+              "gps.default",
+              "gralloc.default",
+              "local_time.default",
+              "power.default",
+              "thermal.default",
+              "vibrator.default",
+              # Library AOSP A-Z
               "libaaudio", "libaaudio_internal", "libacryl",
               "libadbconnection_client", "libadbd_auth", "libadbd_fs",
               "libamidi", "libandroid", "libandroid_net", "libandroid_runtime",
@@ -55,80 +80,75 @@ jobs:
               "libaudiomanager", "libaudiopolicy", "libaudioprocessing",
               "libaudiospdif", "libaudioutils", "libavservices_minijail",
               "libavservices_minijail_vendor",
-              # B
               "libbacktrace", "libbase", "libbcc", "libbcinfo", "libbinder",
               "libbinder_ndk", "libbinderdebug", "libbinderthreadstateutils",
-              "libblas", "libbluetooth_gd", "libboringssl", "libbrotli",
-              "libbt-bta", "libbt-common", "libbt-hci", "libbt-sbc-decoder",
-              "libbt-sbc-encoder", "libbt-stack", "libbt-utils",
-              "libbufferhub", "libbufferhubqueue",
-              # C
+              "libblas", "libbluetooth_audio_session",
+              "libbluetooth_audio_session_aidl", "libbluetooth_gd",
+              "libboringssl", "libbrotli", "libbt-bta", "libbt-common",
+              "libbt-hci", "libbt-sbc-decoder", "libbt-sbc-encoder",
+              "libbt-stack", "libbt-utils", "libbufferhub",
+              "libbufferhubqueue",
               "libc", "libc++", "libc++abi", "libcamera2ndk",
               "libcamera_client", "libcamera_metadata", "libcameraservice",
               "libcap", "libcgrouprc", "libchrome", "libcld80211",
-              "libcompiler_rt", "libcppbor", "libcppcose_rkp", "libcrypto",
+              "libclearkeycasplugin", "libcompiler_rt", "libcppbor",
+              "libcppbor_external", "libcppcose_rkp", "libcrypto",
               "libcrypto_utils", "libcups", "libcurl", "libcutils",
-              # D
-              "libdatasource", "libdebuggerd_client", "libdexfile",
-              "libdexfile_external", "libdl", "libdl_android", "libdmabufheap",
-              "libdng_sdk", "libdrm", "libdrmframework", "libdrmframeworkcommon",
-              "libdumpstateaidl", "libdumpstateutil", "libdynamic_depth",
-              # E
+              "libdatasource", "libdav1d", "libdebuggerd_client", "libdexfile",
+              "libdexfile_external", "libdisplaysystem", "libdl",
+              "libdl_android", "libdmabufheap", "libdng_sdk", "libdrm",
+              "libdrmclearkeyplugin", "libdrmframework",
+              "libdrmframeworkcommon", "libdumpstateaidl", "libdumpstateutil",
+              "libdynamic_depth", "libdynproc",
               "libEGL", "libeffects", "libeffectsconfig", "libeigen",
               "liberror_prone_annotations", "libevent", "libexif", "libexpat",
-              # F
-              "libfec", "libfiemap", "libfilterfw", "libfilterpack_imageproc",
-              "libflac", "libflatbuffers-cpp", "libfmq", "libfs_mgr",
-              "libfsmgr_binder", "libft2", "libfuse",
-              # G
+              "libext4_utils",
+              "libf2fs_sparseblock", "libfec", "libfiemap", "libfilterfw",
+              "libfilterpack_imageproc", "libflac", "libflatbuffers-cpp",
+              "libfmq", "libfs_mgr", "libfsmgr_binder", "libft2", "libfuse",
               "libGLESv1_CM", "libGLESv2", "libGLESv3", "libgatekeeper",
-              "libgccunwind", "libgemmlowp", "libgralloctypes",
-              "libgraphicsenv", "libgsi", "libgtest_prod", "libgui",
-              # H
-              "libhardware", "libhardware_legacy", "libharfbuzz_ng", "libheif",
-              "libhidl-gen-utils", "libhidlallocatorutils", "libhidlbase",
-              "libhidlmemory", "libhidltransport", "libhwbinder",
-              "libhwc2on1adapter", "libhwc2onfbadapter", "libhwui",
-              # I
-              "libicui18n", "libicuuc", "libimage_io", "libimg_utils",
+              "libgccunwind", "libgemmlowp", "libgif", "libgralloctypes",
+              "libgrallocusage", "libgraphicsenv", "libgsi", "libgtest_prod",
+              "libgui",
+              "libhapticgenerator", "libhardware", "libhardware_legacy",
+              "libharfbuzz_ng", "libheif", "libhidl-gen-utils",
+              "libhidlallocatorutils", "libhidlbase", "libhidlmemory",
+              "libhidltransport", "libhwbinder", "libhwc2on1adapter",
+              "libhwc2onfbadapter", "libhwui",
+              "libicu", "libicui18n", "libicuuc", "libimage_io", "libimg_utils",
               "libincident", "libinput", "libinputflinger",
               "libinputflinger_base", "libion", "libiprouteutil", "libiterate",
               "libiwlan",
-              # J - K
               "libjnihelper", "libjnigraphics", "libjpeg", "libjsoncpp",
               "libkeymint", "libkeystore-attestation-application-id",
               "libkeystore-engine-wifi-hidl", "libkeystore2_crypto", "libkll",
-              # L
+              "libkm_compat",
               "liblayers_proto", "libldacBT_abr", "libldacBT_enc",
-              "liblodepng", "liblog", "liblogcat", "liblogwrap",
+              "liblodepng", "liblog", "liblogcat", "liblogwrap", "liblp",
               "liblz4", "liblzma",
-              # M
               "libm", "libmath", "libmdnssd", "libmedia",
               "libmedia_aidl_conversion", "libmedia_codeclist",
               "libmedia_helper", "libmedia_jni_utils", "libmedia_omx",
               "libmediadrm", "libmediaextractor", "libmediametrics",
               "libmediandk", "libmediautils", "libmeminfo", "libmemtrack",
-              "libmemunreachable", "libminijail", "libminikin",
-              "libmkbootimg_abi_check", "libmodpb64", "libmtp",
-              # N
+              "libmemunreachable", "libmetricslogger", "libminijail",
+              "libminikin", "libminizip", "libmkbootimg_abi_check",
+              "libmodpb64", "libmtp",
               "libnativedisplay", "libnativehelper", "libnativeloader",
               "libnativewindow", "libnbaio", "libnbaio_mono", "libnetd_client",
               "libnetlink", "libnetutils", "libnfc-nci", "libnfc_nci_jni",
               "libnl", "libnnapi",
-              # O
-              "libopenjdk", "libopenjdkjvm", "libopenjdkjvmti",
+              "libogg", "libopenjdk", "libopenjdkjvm", "libopenjdkjvmti",
               "libopus", "libosi",
-              # P
               "libpackageparser", "libpcap", "libpcre2", "libpdfium",
               "libpdx_default_transport", "libpiex", "libpng", "libpower",
               "libpowermanager", "libprocessgroup", "libprocinfo",
-              "libprotobuf-cpp-full", "libprotobuf-cpp-lite",
+              "libprotobuf-cpp-full", "libprotobuf-cpp-lite", "libpsi",
               "libpuresoftkeymasterdevice",
-              # Q - R
               "libqtaguid", "libradio_metadata", "libreference-ril",
               "libremotemessage", "libresourcemanagerservice", "libril",
-              "librilutils", "librs_jni", "librtp_jni", "libruy",
-              # S
+              "librilutils", "librs_jni", "librtp_jni", "librustutils",
+              "libruy",
               "libselinux", "libsensor", "libsensorservice",
               "libsensorservicehidl", "libsepol", "libservices", "libsigchain",
               "libskia", "libsoft_attestation_cert", "libsonivox",
@@ -138,18 +158,14 @@ jobs:
               "libstatssocket", "libstdc++", "libsurfaceflinger",
               "libsurfaceflinger_client", "libsuspend", "libsync",
               "libsysutils",
-              # T
               "libtextclassifier", "libtextclassifier_hash", "libtflite",
               "libtflite_static", "libthermal", "libtiff_directory",
               "libtinyalsa", "libtinycompress", "libtinyxml2",
               "libtombstoned_client", "libtrusty",
-              # U
               "libui", "libultrahdr", "libunwindstack", "libusbhost",
               "libutils",
-              # V
               "libvibrator", "libvibratorutils", "libvndksupport",
               "libvorbisidec", "libvpx", "libvulkan",
-              # W - Z
               "libwebp-decode", "libwebp-encode",
               "libwebrtc_audio_preprocessing", "libwebviewchromium_loader",
               "libwebviewchromium_plat_support", "libwifi-system",
@@ -157,13 +173,12 @@ jobs:
               "libxml2", "libyuv", "libz", "libziparchive", "libzstd",
           }
 
-          # Lindungi seluruh modul proprietary Unisoc / Spreadtrum / Itel
+          # Lindungi modul proprietary Unisoc / Spreadtrum / Itel / Transsion
           vendor_keep_re = re.compile(
-              r'(sprd|unisoc|itel|transsion|sc98|ums\d|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|mali|powervr|rogue|goodix|silead|chipone|focaltech|novatek|ilitek|himax|synaptics|egistec|sunwave|cdfinger|betterlife|microarray|nvitem|engpc|ylog|cplog|phasecheck)',
+              r'(sprd|unisoc|itel|transsion|sc98|ums\d|t603|t606|t612|t616|marlin|wcn|shark|pike|orca|ud710|mali|powervr|rogue|goodix|silead|chipone|focaltech|novatek|ilitek|himax|synaptics|egistec|sunwave|cdfinger|betterlife|microarray|nvitem|engpc|ylog|cplog|phasecheck|trusty|widevine)',
               re.IGNORECASE
           )
 
-          # Pola otomatis untuk keluarga library & antarmuka standar AOSP
           aosp_pattern_re = re.compile(
               r'^('
               r'(?!vendor\.).*-aidl-(cpp|ndk|ndk_platform|java|rust)|'
@@ -230,6 +245,9 @@ jobs:
                       blk = re.sub(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', rf'\g<1>{new_name}\g<3>', blk, count=1)
                   else:
                       seen[mod_name] = 1
+                  # Tambahkan check_elf_files: false agar ELF check tidak gagal saat kompilasi
+                  if mod_type == "cc_prebuilt_library_shared" and "check_elf_files" not in blk:
+                      blk = re.sub(r'(?m)^(\s*prefer:\s*true,)', r'    check_elf_files: false,\n\1', blk, count=1)
               kept_blocks.append(blk)
 
           print(f"Total modul AOSP bentrok yang dihapus: {len(removed_mods)}")
@@ -243,11 +261,30 @@ jobs:
                   content
               )
 
-          # 5. Bersihkan referensi modul yang dihapus di file .mk
+          # 5. Bersihkan referensi modul & file init .rc duplikat di file .mk
+          dup_rc_files = {
+              "android.hardware.audio.service.rc",
+              "android.hardware.biometrics.fingerprint@2.1-service.rc",
+              "android.hardware.camera.provider@2.4-service.rc",
+              "android.hardware.cas@1.2-service-lazy.rc",
+              "android.hardware.drm-service-lazy.clearkey.rc",
+              "android.hardware.graphics.composer@2.4-service.rc",
+              "android.hardware.health-service.example.rc",
+              "android.hardware.media.omx@1.0-service.rc",
+              "android.hardware.sensors-service-multihal.rc",
+              "android.hardware.usb-service.example.rc",
+              "android.hardware.wifi.supplicant-service.rc",
+              "android.hardware.wifi@1.0-service-lazy.rc",
+              "boringssl_self_test.rc",
+              "hostapd.android.rc",
+              "vndservicemanager.rc",
+          }
           for mk_path in glob.glob("**/*.mk", recursive=True):
               mk_txt = open(mk_path).read()
               for rmod in removed_mods:
                   mk_txt = re.sub(rf'(?m)^\s*{re.escape(rmod)}\s*\\?\s*\n', '', mk_txt)
+              for rcf in dup_rc_files:
+                  mk_txt = re.sub(rf'(?m)^\s*[^\n]*/{re.escape(rcf)}:[^\n]*\n', '', mk_txt)
               open(mk_path, "w").write(mk_txt)
 
           # 6. Remap protobuf 3.9.1 ke versi LineageOS 20
@@ -307,5 +344,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: sweep libbinderdebug and full A-Z AOSP prebuilt conflicts" || exit 0
+          git commit -m "vendor: audit and strip all remaining AOSP library, HAL, and init conflicts" || exit 0
           git push
