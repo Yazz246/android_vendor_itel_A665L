@@ -25,7 +25,7 @@ jobs:
               if os.path.isfile(rm_file):
                   os.remove(rm_file)
 
-          # 2. Daftar lengkap modul bentrok AOSP (Executable, HAL .default, Library A-Z)
+          # 2. Daftar lengkap modul bentrok AOSP (Executable, HAL .default, Library Shared A-Z)
           conflict_mods = {
               "readme",
               "libwifi-hal",
@@ -67,7 +67,7 @@ jobs:
               "power.default",
               "thermal.default",
               "vibrator.default",
-              # Library AOSP A-Z (kecuali libdav1d yang di AOSP hanya static)
+              # Library Shared AOSP A-Z (tidak termasuk static-only seperti libdav1d & libminizip)
               "libaaudio", "libaaudio_internal", "libacryl",
               "libadbconnection_client", "libadbd_auth", "libadbd_fs",
               "libamidi", "libandroid", "libandroid_net", "libandroid_runtime",
@@ -98,17 +98,16 @@ jobs:
               "libdexfile_external", "libdisplaysystem", "libdl",
               "libdl_android", "libdmabufheap", "libdng_sdk", "libdrm",
               "libdrmclearkeyplugin", "libdrmframework",
-              "libdrmframeworkcommon", "libdumpstateaidl", "libdumpstateutil",
+              "libdrmframeworkcommon", "libdumpstateaidl",
               "libdynamic_depth", "libdynproc",
               "libEGL", "libeffects", "libeffectsconfig", "libeigen",
               "liberror_prone_annotations", "libevent", "libexif", "libexpat",
-              "libext4_utils",
-              "libf2fs_sparseblock", "libfec", "libfiemap", "libfilterfw",
+              "libfiemap", "libfilterfw",
               "libfilterpack_imageproc", "libflac", "libflatbuffers-cpp",
-              "libfmq", "libfs_mgr", "libfsmgr_binder", "libft2", "libfuse",
+              "libfmq", "libfsmgr_binder", "libft2", "libfuse",
               "libGLESv1_CM", "libGLESv2", "libGLESv3", "libgatekeeper",
               "libgccunwind", "libgemmlowp", "libgif", "libgralloctypes",
-              "libgrallocusage", "libgraphicsenv", "libgsi", "libgtest_prod",
+              "libgrallocusage", "libgraphicsenv", "libgsi",
               "libgui",
               "libhapticgenerator", "libhardware", "libhardware_legacy",
               "libharfbuzz_ng", "libheif", "libhidl-gen-utils",
@@ -124,7 +123,7 @@ jobs:
               "libkeystore-engine-wifi-hidl", "libkeystore2_crypto", "libkll",
               "libkm_compat",
               "liblayers_proto", "libldacBT_abr", "libldacBT_enc",
-              "liblodepng", "liblog", "liblogcat", "liblogwrap", "liblp",
+              "liblodepng", "liblog", "liblogcat", "liblogwrap",
               "liblz4", "liblzma",
               "libm", "libmath", "libmdnssd", "libmedia",
               "libmedia_aidl_conversion", "libmedia_codeclist",
@@ -132,7 +131,7 @@ jobs:
               "libmediadrm", "libmediaextractor", "libmediametrics",
               "libmediandk", "libmediautils", "libmeminfo", "libmemtrack",
               "libmemunreachable", "libmetricslogger", "libminijail",
-              "libminikin", "libminizip", "libmkbootimg_abi_check",
+              "libminikin", "libmkbootimg_abi_check",
               "libmodpb64", "libmtp",
               "libnativedisplay", "libnativehelper", "libnativeloader",
               "libnativewindow", "libnbaio", "libnbaio_mono", "libnetd_client",
@@ -159,7 +158,7 @@ jobs:
               "libsurfaceflinger_client", "libsuspend", "libsync",
               "libsysutils",
               "libtextclassifier", "libtextclassifier_hash", "libtflite",
-              "libtflite_static", "libthermal", "libtiff_directory",
+              "libthermal", "libtiff_directory",
               "libtinyalsa", "libtinycompress", "libtinyxml2",
               "libtombstoned_client", "libtrusty",
               "libui", "libultrahdr", "libunwindstack", "libusbhost",
@@ -315,9 +314,15 @@ jobs:
           os.makedirs("proprietary/vendor/lib", exist_ok=True)
           os.makedirs("proprietary/vendor/lib64", exist_ok=True)
 
-          # 7. Kembalikan definisi libdav1d (dibutuhkan oleh libomx_av1dec_sw_sprd)
-          if 'name: "libdav1d"' not in content and os.path.isfile("proprietary/vendor/lib/libdav1d.so") and os.path.isfile("proprietary/vendor/lib64/libdav1d.so"):
-              content += add_prebuilt("libdav1d", "proprietary/vendor/lib/libdav1d.so", "proprietary/vendor/lib64/libdav1d.so")
+          # 7. Kembalikan definisi libdav1d & libminizip (static-only di AOSP, dibutuhkan vendor)
+          for restore_mod in ["libdav1d", "libminizip"]:
+              if f'name: "{restore_mod}"' not in content:
+                  p32 = f"proprietary/vendor/lib/{restore_mod}.so"
+                  p64 = f"proprietary/vendor/lib64/{restore_mod}.so"
+                  r32 = p32 if os.path.isfile(p32) else None
+                  r64 = p64 if os.path.isfile(p64) else None
+                  if r32 or r64:
+                      content += add_prebuilt(restore_mod, r32, r64)
 
           # 8. Salin & daftarkan libc++_shared dari NDK bawaan runner
           if 'name: "libc++_shared"' not in content:
@@ -346,5 +351,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: restore libdav1d shared prebuilt required by libomx_av1dec_sw_sprd" || exit 0
+          git commit -m "vendor: restore libminizip shared prebuilt required by tranlog" || exit 0
           git push
