@@ -231,7 +231,6 @@ jobs:
           seen = {}
           seen_sigs = set()
           removed_mods = set(conflict_mods)
-          removed_vintf_bp = []
           kept_blocks = []
           for blk in blocks:
               m = re.search(r'(?m)^(\s*name:\s*")([^"]+)(".*)$', blk)
@@ -240,7 +239,6 @@ jobs:
                   is_vendor_prop = bool(vendor_keep_re.search(mod_name))
                   if not is_vendor_prop and aosp_vintf_re.match(mod_name):
                       removed_mods.add(mod_name)
-                      removed_vintf_bp.append(mod_name)
                       continue
                   if not is_vendor_prop and (mod_name in conflict_mods or aosp_pattern_re.match(mod_name)):
                       removed_mods.add(mod_name)
@@ -265,7 +263,6 @@ jobs:
                       blk = re.sub(r'(?m)^(\s*prefer:\s*true,)', r'    check_elf_files: false,\n\1', blk, count=1)
               kept_blocks.append(blk)
 
-          print("Modul VINTF/XML AOSP yang dihapus dari Android.bp:", sorted(removed_vintf_bp))
           content = "".join(kept_blocks)
 
           # 4. Hapus referensi modul non-Soong di Android.bp
@@ -276,7 +273,7 @@ jobs:
                   content
               )
 
-          # 5. Bersihkan referensi modul & duplikat init .rc / vintf .xml bawaan AOSP di file .mk
+          # 5. Bersihkan referensi modul & file duplikat (init, vintf, fstab device tree) di file .mk
           dup_rc_files = {
               "android.hardware.audio.service.rc",
               "android.hardware.biometrics.fingerprint@2.1-service.rc",
@@ -293,11 +290,24 @@ jobs:
               "boringssl_self_test.rc",
               "face-default.rc",
               "hostapd.android.rc",
+              "init.A665L.rc",
+              "init.A665L.usb.rc",
+              "init.cali.rc",
+              "init.ram.gms.rc",
+              "init.ram.native.rc",
+              "init.ram.rc",
+              "init.storage.rc",
+              "init.zramwb.rc",
               "lights-default.rc",
               "power.stats-default.rc",
               "thermal-default.rc",
               "vibrator-default.rc",
               "vndservicemanager.rc",
+          }
+
+          # File di /vendor/etc yang sudah dipasang lewat prebuilt_etc di device/itel/A665L
+          dup_vendor_etc_files = {
+              "fstab.A665L",
           }
 
           removed_copy_lines = []
@@ -311,6 +321,10 @@ jobs:
                          (sub_type == "vintf/manifest" and aosp_vintf_re.match(fname)):
                           removed_copy_lines.append(f"{mk_path}: {fname}")
                           continue
+                  m_etc = re.search(r':\$\(TARGET_COPY_OUT_VENDOR\)/etc/([^\s\\]+)', line)
+                  if m_etc and m_etc.group(1) in dup_vendor_etc_files:
+                      removed_copy_lines.append(f"{mk_path}: {m_etc.group(1)}")
+                      continue
                   m_pkg = re.match(r'^\s*([^\s\\]+)\s*\\?\s*$', line)
                   if m_pkg and m_pkg.group(1) in removed_mods:
                       removed_copy_lines.append(f"{mk_path} (pkg): {m_pkg.group(1)}")
@@ -389,5 +403,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip bluetooth_audio.xml and remaining AOSP vintf xml duplicates" || exit 0
+          git commit -m "vendor: strip duplicate fstab.A665L from PRODUCT_COPY_FILES" || exit 0
           git push
