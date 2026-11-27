@@ -270,7 +270,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/midtest/mode/ModeConfig.json:$(TARGET_COPY_OUT_VENDOR)/etc/midtest/mode/ModeConfig.json \
     vendor/itel/A665L/proprietary/vendor/etc/midtest/mode/QT.json:$(TARGET_COPY_OUT_VENDOR)/etc/midtest/mode/QT.json \
     vendor/itel/A665L/proprietary/vendor/etc/midtest/mode/QT2.json:$(TARGET_COPY_OUT_VENDOR)/etc/midtest/mode/QT2.json \
-    vendor/itel/A665L/proprietary/vendor/etc/mkshrc:$(TARGET_COPY_OUT_VENDOR)/etc/mkshrc \
     vendor/itel/A665L/proprietary/vendor/etc/models/noahark/gesture/tsn_gesture:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/gesture/tsn_gesture \
     vendor/itel/A665L/proprietary/vendor/etc/models/noahark/imageClassify/README.md:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/imageClassify/README.md \
     vendor/itel/A665L/proprietary/vendor/etc/models/noahark/imageClassify/cv_imageClassify:$(TARGET_COPY_OUT_VENDOR)/etc/models/noahark/imageClassify/cv_imageClassify \
@@ -598,7 +597,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/sprd_audio_policy_engine_criteria.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sprd_audio_policy_engine_criteria.xml \
     vendor/itel/A665L/proprietary/vendor/etc/sprd_hdr_tuning.param:$(TARGET_COPY_OUT_VENDOR)/etc/sprd_hdr_tuning.param \
     vendor/itel/A665L/proprietary/vendor/etc/supl.xml:$(TARGET_COPY_OUT_VENDOR)/etc/supl.xml \
-    vendor/itel/A665L/proprietary/vendor/etc/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
     vendor/itel/A665L/proprietary/vendor/etc/thermal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal.conf \
     vendor/itel/A665L/proprietary/vendor/etc/tranMagiqueSonMode.dat:$(TARGET_COPY_OUT_VENDOR)/etc/tranMagiqueSonMode.dat \
     vendor/itel/A665L/proprietary/vendor/etc/tran_camprofiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/tran_camprofiles.xml \
