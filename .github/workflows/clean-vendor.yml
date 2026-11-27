@@ -47,6 +47,7 @@ jobs:
               "android.hardware.camera.provider@2.4-service",
               "android.hardware.cas@1.2-service-lazy",
               "android.hardware.drm-service-lazy.clearkey",
+              "android.hardware.gatekeeper@1.0-service.trusty",
               "android.hardware.graphics.composer@2.4-service",
               "android.hardware.health-service.example",
               "android.hardware.media.omx@1.0-service",
@@ -240,7 +241,7 @@ jobs:
                   if not is_vendor_prop and aosp_vintf_re.match(mod_name):
                       removed_mods.add(mod_name)
                       continue
-                  if not is_vendor_prop and (mod_name in conflict_mods or aosp_pattern_re.match(mod_name)):
+                  if mod_name in conflict_mods or (not is_vendor_prop and aosp_pattern_re.match(mod_name)):
                       removed_mods.add(mod_name)
                       continue
                   sig_m = re.search(r'^\s*([a-zA-Z0-9_]+)\s*\{', blk.lstrip())
@@ -280,6 +281,7 @@ jobs:
               "android.hardware.camera.provider@2.4-service.rc",
               "android.hardware.cas@1.2-service-lazy.rc",
               "android.hardware.drm-service-lazy.clearkey.rc",
+              "android.hardware.gatekeeper@1.0-service.trusty.rc",
               "android.hardware.graphics.composer@2.4-service.rc",
               "android.hardware.health-service.example.rc",
               "android.hardware.media.omx@1.0-service.rc",
@@ -305,7 +307,6 @@ jobs:
               "vndservicemanager.rc",
           }
 
-          # File di /vendor/etc yang sudah dipasang lewat prebuilt_etc di device/itel/A665L
           dup_vendor_etc_files = {
               "fstab.A665L",
           }
@@ -403,5 +404,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip duplicate fstab.A665L from PRODUCT_COPY_FILES" || exit 0
+          git commit -m "vendor: strip duplicate gatekeeper trusty rc from PRODUCT_COPY_FILES" || exit 0
           git push
