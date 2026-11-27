@@ -180,7 +180,6 @@ PRODUCT_COPY_FILES += \
     vendor/itel/A665L/proprietary/vendor/etc/enhance/bld.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/bld.xml \
     vendor/itel/A665L/proprietary/vendor/etc/enhance/cms.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/cms.xml \
     vendor/itel/A665L/proprietary/vendor/etc/enhance/gamma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/enhance/gamma.xml \
-    vendor/itel/A665L/proprietary/vendor/etc/fstab.A665L:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.A665L \
     vendor/itel/A665L/proprietary/vendor/etc/fstab.cali:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.cali \
     vendor/itel/A665L/proprietary/vendor/etc/fstab.charge_mode:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.charge_mode \
     vendor/itel/A665L/proprietary/vendor/etc/fstab.enableswap:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.enableswap \
