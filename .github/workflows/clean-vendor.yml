@@ -274,7 +274,7 @@ jobs:
                   content
               )
 
-          # 5. Bersihkan referensi modul & file duplikat (init, vintf, fstab device tree) di file .mk
+          # 5. Bersihkan referensi modul & file duplikat (init, vintf, fstab, mkshrc, task_profiles) di file .mk
           dup_rc_files = {
               "android.hardware.audio.service.rc",
               "android.hardware.biometrics.fingerprint@2.1-service.rc",
@@ -309,6 +309,8 @@ jobs:
 
           dup_vendor_etc_files = {
               "fstab.A665L",
+              "mkshrc",
+              "task_profiles.json",
           }
 
           removed_copy_lines = []
@@ -404,5 +406,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "vendor: strip duplicate gatekeeper trusty rc from PRODUCT_COPY_FILES" || exit 0
+          git commit -m "vendor: strip duplicate mkshrc and task_profiles.json from PRODUCT_COPY_FILES" || exit 0
           git push
